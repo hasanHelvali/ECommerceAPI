@@ -1,4 +1,5 @@
 ﻿using ECommerceAPI.Application.Abstractions;
+using ECommerceAPI.Application.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,18 +9,27 @@ namespace ECommerceAPI.API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductService _productService;//IProductService talep edilince ProductService getirilir.
+        private readonly IProductWriteRepository productWriteRepository;
+        private readonly IProductReadRepository productReadRepository;
 
-        public ProductsController(IProductService productService)
+        public ProductsController(IProductWriteRepository productWriteRepository,IProductReadRepository productReadRepository)
         {
-            _productService = productService;
+            this.productWriteRepository = productWriteRepository;
+            this.productWriteRepository = productWriteRepository;
         }
 
+
         [HttpGet]
-        public IActionResult GetProducts()
+        public async void Get()
         {
-            var products = _productService.GetProducts();
-            return Ok(products);
+            await productWriteRepository.AddRangeAsync(new()
+            {
+                new(){ID=Guid.NewGuid(),Name="Product1",Price=100,CreatedDate=DateTime.UtcNow,Stock=10},
+                new(){ID=Guid.NewGuid(),Name="Product2",Price=200,CreatedDate=DateTime.UtcNow,Stock=20},
+                new(){ID=Guid.NewGuid(),Name="Product3",Price=300,CreatedDate=DateTime.UtcNow,Stock=30},
+            });
+
+            await productWriteRepository.SaveAsync();
         }
     }
 }

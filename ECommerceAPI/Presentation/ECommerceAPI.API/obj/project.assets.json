@@ -1275,7 +1275,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "ECommerceAPI.Domain": "1.0.0"
+          "ECommerceAPI.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.12"
         },
         "compile": {
           "bin/placeholder/ECommerceAPI.Application.dll": {}

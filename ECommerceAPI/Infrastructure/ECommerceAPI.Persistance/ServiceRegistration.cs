@@ -1,6 +1,8 @@
 ﻿using ECommerceAPI.Application.Abstractions;
+using ECommerceAPI.Application.Repositories;
 using ECommerceAPI.Persistance.Concretes;
 using ECommerceAPI.Persistance.Contexts;
+using ECommerceAPI.Persistance.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,17 +19,18 @@ namespace ECommerceAPI.Persistance
     {
         public static void AddPersistanceServices(this IServiceCollection services)
         {
-            //services.AddSingleton<IProductService, ProductService>();
-            //IProductService talebi istendiginde ProductService geri gonder.
-            //Persistance da onlarca service ve sınıf olabilir. Bunlari IoC ye ekleyebilmem icin buradaki extension metot dan yararlanacam. 
-            //Bu extension metot IoC container bulunduran WebApi projesinde tetiklenmesi gerekiyor.
 
+            services.AddDbContext<ECommerceAPI_DBContext>(options => options.UseSqlServer(Configuration.ConnectionString),
+                ServiceLifetime.Singleton);
+            services.AddSingleton<ICustomerReadRepository,CustomerReadRepository>();//ICustomerRR istenince CustomerRR don.
+            //Ilgili varlıkların davranıslarına gore singleton,scoped vs seklinde eklenebilir.
 
-            services.AddDbContext<ECommerceAPI_DBContext>(options => options.UseSqlServer(
-                Configuration.ConnectionString
-                )); 
-            //Burada hangi kutuphaneyi kullanacaksak onunla ilgili kutuphaneyi yuklemem gerekiyor.
-            //Ilgili paketi nuget da yukledim. UseNpgsql fonksiyonu postgresql i kullanacagımızı bildirdigimiz fonksiyondur.  
+            services.AddSingleton<ICustomerWriteRepository, CustomerWriteRepository>();
+            services.AddSingleton<IOrderReadRepository, OrderReadRepository>();
+            services.AddSingleton<IOrderWriteRepository, OrderWriteRepository>();
+            services.AddSingleton<IProductReadRepository, ProductReadRepository>();
+            services.AddSingleton<IProductWriteRepository, ProductWriteRepository>();
+            //Butun service ler bu sekilde eklenmis oldular.
         }
     }
 }
