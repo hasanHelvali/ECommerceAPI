@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ECommerceAPI.Application.Repositories
 {
-    public interface IProductReadRepository:IOrderReadRepository<Product>
+    public interface IProductReadRepository:IReadRepository<Product>
     {
     }
 }

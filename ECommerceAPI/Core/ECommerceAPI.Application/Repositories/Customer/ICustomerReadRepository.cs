@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ECommerceAPI.Application.Repositories
 {
-    public interface ICustomerReadRepository:IOrderReadRepository<Customer>
+    public interface ICustomerReadRepository:IReadRepository<Customer>
     {
         //ICustomerReadRepository artık customer a ozel IReadRepository icindeki yapılari barındırır.
     }
