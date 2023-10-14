@@ -4,6 +4,7 @@ using ECommerceAPI.Persistance.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ECommerceAPI.Persistance.Migrations
 {
     [DbContext(typeof(ECommerceAPI_DBContext))]
-    partial class ECommerceAPI_DBContextModelSnapshot : ModelSnapshot
+    [Migration("20231014095601_mig_3")]
+    partial class mig_3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,7 +59,7 @@ namespace ECommerceAPI.Persistance.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("CustomerId")
+                    b.Property<Guid>("CustomerID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
@@ -68,7 +71,7 @@ namespace ECommerceAPI.Persistance.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("CustomerId");
+                    b.HasIndex("CustomerID");
 
                     b.ToTable("Orders");
                 });
@@ -119,7 +122,7 @@ namespace ECommerceAPI.Persistance.Migrations
                 {
                     b.HasOne("ECommerceAPI.Domain.Entities.Customer", "Customer")
                         .WithMany("Orders")
-                        .HasForeignKey("CustomerId")
+                        .HasForeignKey("CustomerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

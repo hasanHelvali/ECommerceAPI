@@ -1,4 +1,5 @@
 ﻿using ECommerceAPI.Domain.Entities;
+using ECommerceAPI.Domain.Entities.Common;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,32 +11,37 @@ namespace ECommerceAPI.Persistance.Contexts
 {
     public class ECommerceAPI_DBContext:DbContext
     {
-        /*Verinin gelis yolu ile ilgili butun islemler persistance katmanında yapılmalidir. Db tarafını burada, 
-         * code tarafında simule etmek istiyorsak eger bunu context class i ile yaparız. Bu context class i icin DBContext 
-         class indan bir kalitim yapmamiz gerekmektedir. 
-        Bu kalıtım icin Microsoft.EntiityFramework.Core paketine ihtiyac duyuyoruz.*/
-
 
         public ECommerceAPI_DBContext(DbContextOptions option):base(option)
         {
-        /*IoC container a bu DBContext sınıfını vermemiz lazım. Bu yuzden ctor da ilgili islemleri yapmamiz gerekiyor.
-         Ilgili options parametresi base e gonderiliyor. Bu ctor IoC da doldurulacak.*/
 
         }
-        /*DBContext sınıfında ilgili entity lerr db ye aktarılmasi icin dbset olarak alınmalıdır.*/
 
         public DbSet<Product> Products{ get; set; }
-        /*Db yi temsil eden DBContext yapısında Products adında Product tipinde veriler tutan bir tablo tutmus oldum.
-        Yani Product sınıfının prop larinın kolon olarak tutuldugu bir tablo olusturulacagı anlamına geliyor.*/
         public DbSet<Order> Orders{ get; set; }
         public DbSet<Customer> Customers{ get; set; }
 
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            /*SaveChanges tetiklendiginde ilgili datalar uzerinde bazı degisiklikler yapabilirim.
+             Bunu burada araya girerek yaptıgım icin bu mekanizmaya interceptor diyoruz. */
 
-        /*Simdi bu yapıyı IoC container a eklemem lazım ki her yerden erisebileyim. 
-         IoC container WEBApi projesinde yani presentation katmanında var. 
-        Bunu bir seklilde oraya godnermem lazım. 
-        Katmanlar arasında bir sekilde bir sey gonderirken Registration i kullanıyordum.
-        Bunu oradan IoC ye ilgili datalari gonderiyorum. Oradaki yapı da zaten direkt olarak programcs kullanılıyor. */
+            var datas = ChangeTracker.Entries<BaseEntity>(); //Ilgili degisikligi takip eden property dir.
+                                                            //Bundan sonra surece giren butun base entity ler yakalanırlar. Burada baseentity yi secmemin nedeni butun dataların ozunde bir baseentity olmasıdır.
 
+            foreach (var data in datas)
+            {
+                _ = data.State switch//_ kullanmamın nedeni burada bir atama yapmak istemememdir. Buna discard yapısı denir.
+                {
+                    EntityState.Added=>data.Entity.CreatedDate=DateTime.Now,//Eger gelen data eklemeyle gelmisse createdDate eklenir.
+                    EntityState.Modified=> data.Entity.UpdatedDate = DateTime.Now,////Eger gelen data guncellemeyle gelmisse updatedDate eklenir.
+                };
+            }
+            return await base.SaveChangesAsync(cancellationToken);//SaveChangesAsync fonksiyonunu tekrardan deverye sokuyorum.
+
+            /*Bir veriyi eklerken veya bir veriyi guncellerken ne zaman saveChangesAsync i tetiklersek once buradaki override tetiklenecek.
+             Ilgılı yakalama ve manipulasyon islemleri yurutulecek.
+            Sonra savechanges tektardan return de cagrılıp, son degisiklige gore tekrardan calıstırılacak.*/
+        }
     }
 }

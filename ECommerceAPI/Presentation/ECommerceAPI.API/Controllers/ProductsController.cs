@@ -3,6 +3,7 @@ using ECommerceAPI.Application.Repositories;
 using ECommerceAPI.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace ECommerceAPI.API.Controllers
 {
@@ -10,40 +11,63 @@ namespace ECommerceAPI.API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductWriteRepository productWriteRepository;
-        private readonly IProductReadRepository productReadRepository;
+        readonly private IProductWriteRepository productWriteRepository;
+        readonly private IProductReadRepository productReadRepository;
 
-        public ProductsController(IProductWriteRepository productWriteRepository,IProductReadRepository productReadRepository)
+        private readonly IOrderWriteRepository orderWriteRepository;
+        private readonly IOrderReadRepository orderReadRepository;
+        private readonly ICustomerWriteRepository customerWriteRepository;
+        //Burasi simdilik test amacli kullandıgım bir controller yapısı oldugu icin simdilik bu sekilde bir inject islemi yapömamız sorun olmaz.
+
+        public ProductsController(IProductWriteRepository _productWriteRepository, IProductReadRepository _productReadRepository,
+            ICustomerWriteRepository _customerWriteRepository, IOrderWriteRepository _orderWriteRepository, IOrderReadRepository orderReadRepository)//IoC talepleri yapıldı.
         {
-            this.productWriteRepository = productWriteRepository;
-            this.productWriteRepository = productWriteRepository;
+            this.productWriteRepository = _productWriteRepository;
+            this.productWriteRepository = _productWriteRepository;
+            this.orderWriteRepository = _orderWriteRepository;
+            this.customerWriteRepository = _customerWriteRepository;
+            this.orderReadRepository = orderReadRepository;
         }
 
 
         [HttpGet]
         public async Task Get()
         {
-            //await productWriteRepository.AddRangeAsync(new()
-            //{
-            //    new(){ID=Guid.NewGuid(),Name="Product1",Price=100,CreatedDate=DateTime.UtcNow,Stock=10},
-            //    new(){ID=Guid.NewGuid(),Name="Product2",Price=200,CreatedDate=DateTime.UtcNow,Stock=20},
-            //    new(){ID=Guid.NewGuid(),Name="Product3",Price=300,CreatedDate=DateTime.UtcNow,Stock=30},
-            //});
+            ////await productWriteRepository.AddAsync(new() { Name="A product",Price=1.500F,Stock=20,CreatedDate=DateTime.Now});
+            //// await productWriteRepository.SaveAsync(); 
 
-            //var count = await productWriteRepository.SaveAsync();
-            Product p = await productReadRepository.GetByIdAsync("AAF0BFA8-3C0B-4C9B-B810-E84EB015EE54");
-            p.Name = "Ahmet";
-            await productWriteRepository.SaveAsync();
-            /*Burada productReadRepository uzerinden degisen bir datayi productWriteRepository uzerinden nasıl kaydediyoruz.
-            Isın sırrı scoped da dir. Bu yuzden ilgili service leri IoC ye Scoped olarak ekledik.
-            Sımdilik hem write hem de read operasyonlarında kullanacagımız dbcontext aynı olacagından dolayı bunu yapabiliyoruz.*/
+            //var customerId = Guid.NewGuid();
+
+            /*id ben vermezsem kendisi verir. Lakin ben veriyorum ki burada customer ve order arasında bir iliski kurabileyim.
+             Sonuc olarak customer ve order birbirini foreign key ile baglı. Bu yuzden once bir customer sonra bir order olusturuyorum.
+            Bunlari kendi urettigim id ile de birbirlerine baglıyorum.*/
+
+            //await customerWriteRepository.AddAsync(new Customer() {ID=customerId,Name="Hasan Helvali", });
+
+            //await orderWriteRepository.AddAsync(new Order() {Description="Acıklama Yok.",Address="Bayburt Merkez",CustomerId=customerId,});
+            //await orderWriteRepository.AddAsync(new Order() {Description="Acıklama Yok 2.",Address="Bayburt Gencosman",CustomerId=customerId});
+
+            /*Goruldugu uzere CreatedDate ve updatedDate gibi alanlar bos bırakıldılar.
+             Bu alanlar dbContext teki Interceptor mekanizması olarak belirledigimiz SaveChanges override inda doldurulacaklar.
+            Artık her nesne olusturudugumda veya guncellemeye calıstıgımda bu alanlara deger vermeme gerek yoktur. Bunları bir
+            yerden yometebiliyor durummdayiz.*/
+            //await orderWriteRepository.SaveAsync();//Ilgili tetikleme burada baslatilacak. 
+            //Ilgili kodlar isletildikten sonra yorum satırı haline getirilebilir.
+
+
+            Order order = await orderReadRepository.GetByIdAsync("710FCE52-CCC3-4A5A-1C0E-08DBCCA336DD");
+            //varolan bir veriyi elde ettik.
+            order.Address = "Istanbul";//Bir deigisiklik yaptık.
+            await orderWriteRepository.SaveAsync();//Ilgili tetikleme baslatıldı. 
+            //Buradaki update islemi sonucunda updatedDate field inin dolduruldugunu gorebiliriz.
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(string id)
-        {
-            Product product= await productReadRepository.GetByIdAsync(id);
-            return Ok(product);
-        }
+        //[HttpGet("{id}")]
+        //public async Task<IActionResult> Get(string id)
+        //{
+        //    Console.WriteLine(id);
+        //    Product product= await productReadRepository.GetByIdAsync(id);
+        //    return Ok(product);
+        //}
     }
 }

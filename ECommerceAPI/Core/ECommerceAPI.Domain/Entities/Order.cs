@@ -16,6 +16,8 @@ namespace ECommerceAPI.Domain.Entities
         Bunu koymazsak ef core zaten kendisi boyle bir alan tutacak. Egerr koyarsak tuttugu alanın kontrolunu bize verip burasi 
         ile iliskilendirecek.
         */
+
+        public Guid CustomerId { get; set; }
         public string Description { get; set; }
         public string Address { get; set; }
 

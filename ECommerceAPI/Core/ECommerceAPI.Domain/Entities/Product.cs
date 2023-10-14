@@ -11,7 +11,7 @@ namespace ECommerceAPI.Domain.Entities
     {
         public string Name { get; set; }
         public int Stock { get; set; }
-        public decimal Price { get; set; }
+        public float Price { get; set; }
 
         public ICollection<Order> Orders  { get; set; }
         //Bir products birden fazla order da olabilmektedir. 1-n iliskiyi n-n iliskiye cekmis olduk.
