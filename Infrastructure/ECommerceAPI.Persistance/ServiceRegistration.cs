@@ -24,7 +24,6 @@ namespace ECommerceAPI.Persistance
                 ServiceLifetime.Singleton);
             services.AddSingleton<ICustomerReadRepository,CustomerReadRepository>();//ICustomerRR istenince CustomerRR don.
             //Ilgili varlıkların davranıslarına gore singleton,scoped vs seklinde eklenebilir.
-
             services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();
             services.AddScoped<IOrderReadRepository, OrderReadRepository>();
             services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
