@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ECommerceAPI.Application</id>
+    <version>1.0.0</version>
+    <authors>ECommerceAPI.Application</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="ECommerceAPI.Domain" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore" version="7.0.12" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\bin\Debug\net6.0\ECommerceAPI.Application.dll" target="lib\net6.0\ECommerceAPI.Application.dll" />
+  </files>
+</package>

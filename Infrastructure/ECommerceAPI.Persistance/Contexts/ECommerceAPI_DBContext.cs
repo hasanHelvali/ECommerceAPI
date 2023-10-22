@@ -35,6 +35,7 @@ namespace ECommerceAPI.Persistance.Contexts
                 {
                     EntityState.Added=>data.Entity.CreatedDate=DateTime.Now,//Eger gelen data eklemeyle gelmisse createdDate eklenir.
                     EntityState.Modified=> data.Entity.UpdatedDate = DateTime.Now,////Eger gelen data guncellemeyle gelmisse updatedDate eklenir.
+                    _ =>DateTime.UtcNow 
                 };
             }
             return await base.SaveChangesAsync(cancellationToken);//SaveChangesAsync fonksiyonunu tekrardan deverye sokuyorum.
