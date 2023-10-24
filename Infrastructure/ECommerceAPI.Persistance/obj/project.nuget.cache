@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "qXTW0KZrXt+wIVjYw+VlALlADdpiaeowqh2CD1hgl97OpjD7opXKMk+eZm+iI1N2VagjMEq2GFiHuWHU5MOdTg==",
+  "dgSpecHash": "A8akfErzXo9WKhZ+ujmihehk7cRO8zZgi7oDWIOWltxfBCsQydyKG4pI2qXvJxRhlLcltQGk+nMpmQ/dDyDYEg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Hasan Helvalı\\Desktop\\E-Commerce\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Persistance\\ECommerceAPI.Persistance.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hasan Helvalı\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Hasan Helvalı\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\Hasan Helvalı\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",
+    "C:\\Users\\Hasan Helvalı\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\Hasan Helvalı\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.0\\fluentvalidation.dependencyinjectionextensions.11.8.0.nupkg.sha512",
     "C:\\Users\\Hasan Helvalı\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Hasan Helvalı\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Hasan Helvalı\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

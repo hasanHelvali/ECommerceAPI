@@ -37,6 +37,10 @@ namespace ECommerceAPI.API.Controllers
         [HttpPost]  
         public async Task<IActionResult> Post(VM_Create_Product model)
         {
+            if (ModelState.IsValid)
+            {
+
+            }
             await productWriteRepository.AddAsync(new Product {Name=model.Name,Price=model.Price,Stock=model.Stock});
             await productWriteRepository.SaveAsync();
             //return Ok();

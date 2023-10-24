@@ -93,3 +93,8 @@ C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAP
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Physical.dll
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\NLog.dll
+C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\ECommerceAPI.Infrastructure.dll
+C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\ECommerceAPI.Infrastructure.pdb
