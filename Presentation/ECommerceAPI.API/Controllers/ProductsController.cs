@@ -1,5 +1,6 @@
 ﻿using ECommerceAPI.Application.Abstractions;
 using ECommerceAPI.Application.Repositories;
+using ECommerceAPI.Application.RequestParameters;
 using ECommerceAPI.Application.ViewModels.Products;
 using ECommerceAPI.Domain.Entities;
 using Microsoft.AspNetCore.Http;
@@ -23,25 +24,40 @@ namespace ECommerceAPI.API.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get([FromQuery] Pagination pagination)
         {
-            return Ok(productReadRepository.GetAll(false));
+            await Task.Delay(500);
+            var totalCount = productReadRepository.GetAll().Count();
+
+            var products = productReadRepository.GetAll(false)
+                .Skip(pagination.Page * pagination.Size)
+                .Take(pagination.Size)
+                .Select(p => new
+                {
+                    p.ID,
+                    p.Name,
+                    p.Price,
+                    p.Stock,
+                    p.CreatedDate,
+                    p.UpdatedDate
+                }).ToList();
+            return Ok(new
+            {
+                products,
+                totalCount
+            });
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(string id)
         {
-            return Ok(productReadRepository.GetByIdAsync(id,false));
+            return Ok(productReadRepository.GetByIdAsync(id, false));
         }
 
-        [HttpPost]  
+        [HttpPost]
         public async Task<IActionResult> Post(VM_Create_Product model)
         {
-            if (ModelState.IsValid)
-            {
-
-            }
-            await productWriteRepository.AddAsync(new Product {Name=model.Name,Price=model.Price,Stock=model.Stock});
+            await productWriteRepository.AddAsync(new Product { Name = model.Name, Price = model.Price, Stock = model.Stock });
             await productWriteRepository.SaveAsync();
             //return Ok();
             return StatusCode((int)HttpStatusCode.Created);
