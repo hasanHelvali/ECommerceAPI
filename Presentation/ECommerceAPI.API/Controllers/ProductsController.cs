@@ -26,7 +26,8 @@ namespace ECommerceAPI.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] Pagination pagination)
         {
-            await Task.Delay(500);
+            //await Task.Delay(500);
+
             var totalCount = productReadRepository.GetAll().Count();
 
             var products = productReadRepository.GetAll(false)
