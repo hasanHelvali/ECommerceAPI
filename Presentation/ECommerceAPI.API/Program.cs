@@ -26,6 +26,8 @@ if (app.Environment.IsDevelopment())
     app.UseCors();
 }
 app.UseCors();
+
+app.UseStaticFiles();//wwwroot un kullanýlabilmesi icin eklenen bir middleware dir.
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

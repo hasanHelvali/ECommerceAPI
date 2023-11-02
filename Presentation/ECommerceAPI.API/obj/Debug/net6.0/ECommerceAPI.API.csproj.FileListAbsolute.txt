@@ -98,3 +98,4 @@ C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAP
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\ECommerceAPI.Infrastructure.dll
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\ECommerceAPI.Infrastructure.pdb
+C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\ECommerceAPI.API.staticwebassets.runtime.json
