@@ -1,6 +1,7 @@
 ﻿using ECommerceAPI.Application.Abstractions;
 using ECommerceAPI.Application.Repositories;
 using ECommerceAPI.Application.RequestParameters;
+using ECommerceAPI.Application.Services;
 using ECommerceAPI.Application.ViewModels.Products;
 using ECommerceAPI.Domain.Entities;
 using Microsoft.AspNetCore.Http;
@@ -18,12 +19,15 @@ namespace ECommerceAPI.API.Controllers
         readonly private IProductWriteRepository productWriteRepository;
         readonly private IProductReadRepository productReadRepository;
         readonly private IWebHostEnvironment webHostEnvironment;
+        readonly private IFileService fileService;
+
         public ProductsController(IProductWriteRepository _productWriteRepository, IProductReadRepository _productReadRepository,
-            IWebHostEnvironment _webHostEnvironment)
+            IWebHostEnvironment _webHostEnvironment, IFileService _fileService)
         {
             this.productWriteRepository = _productWriteRepository;
             this.productReadRepository = _productReadRepository;
             this.webHostEnvironment= _webHostEnvironment;
+            this.fileService = _fileService;
         }
 
 
@@ -90,38 +94,10 @@ namespace ECommerceAPI.API.Controllers
 
 
         [HttpPost("[action]")]
-        /*Post fonksiyonu var oldugu icin bir baska post fonksiyonuna isim vermemiz gerekiyor. 
-        //Bu sebeple bu post un kullanılabilmesi icin [action] seklinde bir tanımlama getirdim. Upload adında bir action
-        bu post a asla dusmeyiz.*/
         public async Task<IActionResult> Upload()
         {
-                string uploadPath = Path.Combine(webHostEnvironment.WebRootPath, "resource/products-image");
-                /*WebHostEnvironment.webrootpath nesnesi benim wwwroot klasorune erismemiz saglayan bir nesnedir.
-                 Burada wwwroot altında rosurce/products-image adında bir kalsor olsuturulacak. Tum bu yol ise 
-                Path.Combine ile olusturulup bu izinli yol uploadPath de tutulacak. Biz de aldıgımız resimleri burada, bu yolun belirttigi
-                wwwroot icinde resoruce altında products-image kalsorunde tutacaz.
-                Buradaki nihai dizin
-                wwwrooot/resource/products-image
-                seklindeki bir dizine karsılık gelir.*/
+            await fileService.UploadAsync("resource/product-images",Request.Form.Files);
 
-
-
-                Random rnd = new Random();
-                if (Directory.Exists(uploadPath))
-                {
-                    Directory.CreateDirectory(uploadPath);
-                }
-                foreach (IFormFile item in Request.Form.Files)
-                /*Ilgili dosyaları yakalama islemi burada yapılıyor. Gelen bir koleksiyon var ve biz bu koleksiyonun
-                 uzerinde donuyoruz.
-                */
-                {
-                    string fullPath = Path.Combine(uploadPath, $"{rnd.Next()}{Path.GetExtension(item.FileName)}");
-                    using FileStream fileStream = new(fullPath, FileMode.Create, FileAccess.Write,
-                        FileShare.None, 1024 * 1024, useAsync: false);
-                    await item.CopyToAsync(fileStream); 
-                    await fileStream.FlushAsync();
-                }
             return Ok();
         }
 

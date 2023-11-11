@@ -1,4 +1,5 @@
 using ECommerceAPI.Application.Validators.Products;
+using ECommerceAPI.Infrastructure;
 using ECommerceAPI.Infrastructure.Filters;
 using ECommerceAPI.Persistance;
 using FluentValidation;
@@ -7,11 +8,13 @@ using FluentValidation.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddPersistanceServices();
+builder.Services.AddInfrastructureServices();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
     options.AddDefaultPolicy(policy =>
             policy.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader().AllowAnyMethod()));
+
 builder.Services.AddControllers(options=>options.Filters.Add<ValidationFilter>())
     .AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<CreateProductValidator>())
 //Fluent Validation yapýsý burada devreye sokulmus oldu.
