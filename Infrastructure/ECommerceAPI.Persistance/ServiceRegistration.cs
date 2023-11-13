@@ -2,6 +2,7 @@
 using ECommerceAPI.Application.Repositories;
 using ECommerceAPI.Persistance.Concretes;
 using ECommerceAPI.Persistance.Contexts;
+using ECommerceAPI.Persistance.InvoiceFile;
 using ECommerceAPI.Persistance.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -30,6 +31,16 @@ namespace ECommerceAPI.Persistance
             services.AddScoped<IProductReadRepository, ProductReadRepository>();
             services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
             //Butun service ler bu sekilde eklenmis oldular.
+
+            services.AddScoped<IFileReadRepository , FileReadRepository>();
+            services.AddScoped<IFileWriteRepository, FileWriteRepository>();
+            
+            services.AddScoped<IProductImageFileReadRepository, ProductImageFileReadRepository>();
+            services.AddScoped<IProductImageFileWriteRepository, ProductImageFileWriteRepository>();
+            
+            services.AddScoped<IInvioceFileReadRepository, InvoiceFileReadRepository>();
+            services.AddScoped<IInvoiceFileWriteRepository, InvoiceFileWriteRepository>();
+
         }
     }
 }

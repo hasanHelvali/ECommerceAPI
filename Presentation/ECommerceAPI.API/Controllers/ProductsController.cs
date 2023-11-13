@@ -19,15 +19,29 @@ namespace ECommerceAPI.API.Controllers
         readonly private IProductWriteRepository productWriteRepository;
         readonly private IProductReadRepository productReadRepository;
         readonly private IWebHostEnvironment webHostEnvironment;
-        readonly private IFileService fileService;
+        readonly  IFileService fileService;
+        readonly  IFileReadRepository fileReadRepository;
+        readonly IFileWriteRepository fileWriteRepository;
+        readonly IProductImageFileReadRepository productImageFileReadRepository;
+        readonly IProductImageFileWriteRepository productImageFileWriteRepository;
+        readonly IInvioceFileReadRepository invoiceFileReadRepository ;
+        readonly IInvoiceFileWriteRepository invoiceFileWriteRepository  ;
 
         public ProductsController(IProductWriteRepository _productWriteRepository, IProductReadRepository _productReadRepository,
-            IWebHostEnvironment _webHostEnvironment, IFileService _fileService)
+            IWebHostEnvironment _webHostEnvironment, IFileService _fileService, IFileReadRepository _fileReadRepository, IFileWriteRepository _fileWriteRepository,
+            IProductImageFileReadRepository _productImageFileReadRepository, IProductImageFileWriteRepository _productImageFileWriteRepository, 
+            IInvioceFileReadRepository _invoiceFileReadRepository, IInvoiceFileWriteRepository _invoiceFileWriteRepository)
         {
             this.productWriteRepository = _productWriteRepository;
             this.productReadRepository = _productReadRepository;
-            this.webHostEnvironment= _webHostEnvironment;
+            this.webHostEnvironment = _webHostEnvironment;
             this.fileService = _fileService;
+            this.fileReadRepository = _fileReadRepository;
+            this.fileWriteRepository = _fileWriteRepository;
+            this.productImageFileReadRepository = _productImageFileReadRepository;
+            this.productImageFileWriteRepository = _productImageFileWriteRepository;
+            this.invoiceFileReadRepository = _invoiceFileReadRepository;
+            this.invoiceFileWriteRepository = _invoiceFileWriteRepository;
         }
 
 
@@ -96,7 +110,45 @@ namespace ECommerceAPI.API.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> Upload()
         {
-            await fileService.UploadAsync("resource/product-images",Request.Form.Files);
+            //product images eklenmesi
+            //var datas = await fileService.UploadAsync("resource/product-images",Request.Form.Files);
+            //await productImageFileWriteRepository.AddRangeAsync(datas.Select(d=> new ProductImageFile()
+            //{
+            //    FileName=d.fileName,
+            //    Path=d.path,
+            //}).ToList());
+            //await productImageFileWriteRepository.SaveAsync();
+
+            //invoice eklenmesi
+            //var datas = await fileService.UploadAsync("resource/invoices", Request.Form.Files);
+            //await invoiceFileWriteRepository.AddRangeAsync(datas.Select(d => new InvoiceFile()
+            //{
+            //    FileName = d.fileName,
+            //    Path = d.path,
+            //    Price=new Random().Next()
+            //}).ToList());
+            //await invoiceFileWriteRepository.SaveAsync();
+
+            //files ekleme
+            //var datas = await fileService.UploadAsync("resource/files", Request.Form.Files);
+            //await fileWriteRepository.AddRangeAsync(datas.Select(d => new ECommerceAPI.Domain.Entities.File()
+            //{
+            //    FileName = d.fileName,
+            //    Path = d.path,
+            //}).ToList());
+            //await fileWriteRepository.SaveAsync();
+
+
+            //var data1 = fileReadRepository.GetAll(false);
+            //file icin db deki tum dosyalar getirilir cunku file bir base class tır.
+            
+            //var data2 = productImageFileReadRepository.GetAll(false);
+            //db den sadece productimage turundeki file lar getirilir.
+            
+            //var data3 = invoiceFileReadRepository.GetAll(false);
+            //db den sadece invoice turundeki file lar getirilir.
+
+
 
             return Ok();
         }
