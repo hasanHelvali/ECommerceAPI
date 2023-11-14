@@ -1,65 +1,8 @@
-﻿using ECommerceAPI.Application.Services;
-using ECommerceAPI.Infrastructure.Operations;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using ECommerceAPI.Infrastructure.Operations;
 namespace ECommerceAPI.Infrastructure.Services
 {
-    public class FileService : IFileService
+    public class FileService
     {
-        readonly IWebHostEnvironment webHostEnvironment;
-
-        public FileService(IWebHostEnvironment _webHostEnvironment)
-        {
-            this.webHostEnvironment = _webHostEnvironment;
-        }
-        public async Task<List<(string fileName, string path)>> UploadAsync(string path, IFormFileCollection files)
-        {
-            string uploadPath = Path.Combine(webHostEnvironment.WebRootPath, path);
-            Random rnd = new Random();
-            if (!Directory.Exists(uploadPath))
-                Directory.CreateDirectory(uploadPath);
-
-            List<(string fileName, string path)> datas = new();
-            List<bool> results = new List<bool>();
-            foreach (IFormFile file in files)
-            {
-                string fileNewName = await FileRenameAsync(uploadPath,file.FileName);
-                bool result = await CopyFileAsync($"{uploadPath}\\{fileNewName}",file);
-                datas.Add((fileNewName,$"{path}\\{fileNewName}"));
-                results.Add(result);
-
-            }
-            if (results.TrueForAll(r=>r.Equals(true)))
-                return datas;
-            return null;
-            // todo Eger ki yukaridaki if gecerli degilse burada dosyaların sunucuda yuklenirken hata alındıgına dair uyarici bir ex olusturulup firlatilmasi gerekiyor.
-    
-
-        }
-
-        public async Task<bool> CopyFileAsync(string path, IFormFile file)
-        {
-            try
-            {
-                await using FileStream fileStream = new(path, FileMode.Create, FileAccess.Write, FileShare.None, 1024 * 1024, false);
-                await file.CopyToAsync(fileStream);
-                await fileStream.FlushAsync();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                //return false;
-                //todo log
-                throw ex;
-            }
-        }
-
          async Task<string> FileRenameAsync(string path , string fileName,bool first=true)
         {
             //Asenkron bir fonksiyonun bnaslatılması bu sekilde yapılabilir.
