@@ -1,6 +1,7 @@
 using ECommerceAPI.Application.Validators.Products;
 using ECommerceAPI.Infrastructure;
 using ECommerceAPI.Infrastructure.Filters;
+using ECommerceAPI.Infrastructure.Services.Storage.Azure;
 using ECommerceAPI.Infrastructure.Services.Storage.Local;
 using ECommerceAPI.Persistance;
 using FluentValidation;
@@ -11,8 +12,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddPersistanceServices();
 builder.Services.AddInfrastructureServices();
 
-builder.Services.AddStorage<LocalStorage>();//Burada IStorage talep ettigimde bunun gelmesini saglýyorum. Baska bir storage verirsem o gelir. 
+//builder.Services.AddStorage<LocalStorage>();
+//Burada IStorage talep ettigimde bunun gelmesini saglýyorum. Baska bir storage verirsem o gelir. 
 //Tek satýr kod uzerinden tum bunlarý duzenleyebilirim.
+builder.Services.AddStorage<AzureStorage>();
+
+
 
 //builder.Services.AddStorage(ECommerceAPI.Infrastructure.Enums.StorageType.Local);
 //builder.Services.AddStorage(ECommerceAPI.Infrastructure.Enums.StorageType.Azure);

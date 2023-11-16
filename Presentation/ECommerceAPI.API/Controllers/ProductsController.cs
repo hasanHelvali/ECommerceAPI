@@ -112,7 +112,9 @@ namespace ECommerceAPI.API.Controllers
         {
             //product images eklenmesi
             //var datas = await fileService.UploadAsync("resource/product-images",Request.Form.Files);
-            var datas = await _storageService.UploadAsync("resource/files", Request.Form.Files);
+            //var datas = await _storageService.UploadAsync("resource/files", Request.Form.Files);
+            var datas = await _storageService.UploadAsync("files", Request.Form.Files);//azure storage icin 
+
             await productImageFileWriteRepository.AddRangeAsync(datas.Select(d => new ProductImageFile()
             {
                 FileName = d.fileName,
