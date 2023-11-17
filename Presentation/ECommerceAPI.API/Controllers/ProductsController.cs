@@ -16,31 +16,32 @@ namespace ECommerceAPI.API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        readonly private IProductWriteRepository productWriteRepository;
-        readonly private IProductReadRepository productReadRepository;
-        readonly private IWebHostEnvironment webHostEnvironment;
-        readonly  IFileReadRepository fileReadRepository;
-        readonly IFileWriteRepository fileWriteRepository;
-        readonly IProductImageFileReadRepository productImageFileReadRepository;
-        readonly IProductImageFileWriteRepository productImageFileWriteRepository;
-        readonly IInvioceFileReadRepository invoiceFileReadRepository ;
-        readonly IInvoiceFileWriteRepository invoiceFileWriteRepository  ;
+        readonly private IProductWriteRepository _productWriteRepository;
+        readonly private IProductReadRepository _productReadRepository;
+        readonly private IWebHostEnvironment _webHostEnvironment;
+        readonly IFileReadRepository _fileReadRepository;
+        readonly IFileWriteRepository _fileWriteRepository;
+        readonly IProductImageFileReadRepository _productImageFileReadRepository;
+        readonly IProductImageFileWriteRepository _productImageFileWriteRepository;
+        readonly IInvioceFileReadRepository _invoiceFileReadRepository;
+        readonly IInvoiceFileWriteRepository _invoiceFileWriteRepository;
         readonly IStorageService _storageService;
 
-        public ProductsController(IProductWriteRepository _productWriteRepository, IProductReadRepository _productReadRepository,
-            IWebHostEnvironment _webHostEnvironment, IFileReadRepository _fileReadRepository, IFileWriteRepository _fileWriteRepository,
-            IProductImageFileReadRepository _productImageFileReadRepository, IProductImageFileWriteRepository _productImageFileWriteRepository,
-            IInvioceFileReadRepository _invoiceFileReadRepository, IInvoiceFileWriteRepository _invoiceFileWriteRepository, IStorageService storageService)
+        public ProductsController(IProductWriteRepository productWriteRepository, IProductReadRepository productReadRepository,
+            IWebHostEnvironment webHostEnvironment, IFileReadRepository fileReadRepository, IFileWriteRepository fileWriteRepository,
+            IProductImageFileReadRepository productImageFileReadRepository, IProductImageFileWriteRepository productImageFileWriteRepository,
+            IInvioceFileReadRepository invoiceFileReadRepository, IInvoiceFileWriteRepository invoiceFileWriteRepository,
+            IStorageService storageService)
         {
-            this.productWriteRepository = _productWriteRepository;
-            this.productReadRepository = _productReadRepository;
-            this.webHostEnvironment = _webHostEnvironment;
-            this.fileReadRepository = _fileReadRepository;
-            this.fileWriteRepository = _fileWriteRepository;
-            this.productImageFileReadRepository = _productImageFileReadRepository;
-            this.productImageFileWriteRepository = _productImageFileWriteRepository;
-            this.invoiceFileReadRepository = _invoiceFileReadRepository;
-            this.invoiceFileWriteRepository = _invoiceFileWriteRepository;
+            this._productWriteRepository = productWriteRepository;
+            this._productReadRepository = productReadRepository;
+            this._webHostEnvironment = webHostEnvironment;
+            this._fileReadRepository = fileReadRepository;
+            this._fileWriteRepository = fileWriteRepository;
+            this._productImageFileReadRepository = productImageFileReadRepository;
+            this._productImageFileWriteRepository = productImageFileWriteRepository;
+            this._invoiceFileReadRepository = invoiceFileReadRepository;
+            this._invoiceFileWriteRepository = invoiceFileWriteRepository;
             _storageService = storageService;
         }
 
@@ -48,11 +49,8 @@ namespace ECommerceAPI.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] Pagination pagination)
         {
-            //await Task.Delay(500);
-
-            var totalCount = productReadRepository.GetAll().Count();
-
-            var products = productReadRepository.GetAll(false)
+            var totalCount = _productReadRepository.GetAll().Count();
+            var products = _productReadRepository.GetAll(false)
                 .Skip(pagination.Page * pagination.Size)
                 .Take(pagination.Size)
                 .Select(p => new
@@ -74,15 +72,14 @@ namespace ECommerceAPI.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(string id)
         {
-            return Ok(productReadRepository.GetByIdAsync(id, false));
+            return Ok(_productReadRepository.GetByIdAsync(id, false));
         }
 
         [HttpPost]
         public async Task<IActionResult> Post(VM_Create_Product model)
         {
-            await productWriteRepository.AddAsync(new Product { Name = model.Name, Price = model.Price, Stock = model.Stock });
-            await productWriteRepository.SaveAsync();
-            //return Ok();
+            await _productWriteRepository.AddAsync(new Product { Name = model.Name, Price = model.Price, Stock = model.Stock });
+            await _productWriteRepository.SaveAsync();
             return StatusCode((int)HttpStatusCode.Created);
         }
 
@@ -90,68 +87,53 @@ namespace ECommerceAPI.API.Controllers
         [HttpPut]
         public async Task<IActionResult> Put(VM_Update_Product model)
         {
-            Product product = await productReadRepository.GetByIdAsync(model.ID);//Guncelleme yapmam gereken product
+            Product product = await _productReadRepository.GetByIdAsync(model.ID);//Guncelleme yapmam gereken product
             product.Price = model.Price;
             product.Stock = model.Stock;
             product.Name = model.Name;
-            await productWriteRepository.SaveAsync();
+            await _productWriteRepository.SaveAsync();
             return Ok(product);
         }
 
         [HttpDelete("{id}")]//Route uzerinden gelecek olan id parametresini burada belirtmis oldum.
         public async Task<IActionResult> Delete(string id)//route dan ilgili id burada yakalanmıs ve bind edilmis olur.
         {
-            await productWriteRepository.RemoveAsync(id);
-            await productWriteRepository.SaveAsync();
+            await _productWriteRepository.RemoveAsync(id);
+            await _productWriteRepository.SaveAsync();
             return Ok();
         }
 
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> Upload()
+        public async Task<IActionResult> Upload(string id)
         {
-            //product images eklenmesi
-            //var datas = await fileService.UploadAsync("resource/product-images",Request.Form.Files);
-            //var datas = await _storageService.UploadAsync("resource/files", Request.Form.Files);
-            var datas = await _storageService.UploadAsync("files", Request.Form.Files);//azure storage icin 
+            List<(string fileName, string pathOrContainerName)> result = await _storageService.UploadAsync("photoImages", Request.Form.Files);
 
-            await productImageFileWriteRepository.AddRangeAsync(datas.Select(d => new ProductImageFile()
+            Product product = await _productReadRepository.GetByIdAsync(id);
+
+
+            await _productImageFileWriteRepository.AddRangeAsync(result.Select(f => new ProductImageFile
             {
-                FileName = d.fileName,
-                Path = d.pathOrContainerName,
-                StorageType=_storageService.StorageName
+                FileName = f.fileName,
+                Path = f.pathOrContainerName,
+                StorageType = _storageService.StorageName,
+                Products = new List<Product>() { product }
             }).ToList());
-            await productImageFileWriteRepository.SaveAsync();
 
-            //invoice eklenmesi
-            //var datas = await fileService.UploadAsync("resource/invoices", Request.Form.Files);
-            //await invoiceFileWriteRepository.AddRangeAsync(datas.Select(d => new InvoiceFile()
+            //foreach (var r in result)
             //{
-            //    FileName = d.fileName,
-            //    Path = d.path,
-            //    Price=new Random().Next()
-            //}).ToList());
-            //await invoiceFileWriteRepository.SaveAsync();
-
-            //files ekleme
-            //var datas = await fileService.UploadAsync("resource/files", Request.Form.Files);
-            //await fileWriteRepository.AddRangeAsync(datas.Select(d => new ECommerceAPI.Domain.Entities.File()
-            //{
-            //    FileName = d.fileName,
-            //    Path = d.path,
-            //}).ToList());
-            //await fileWriteRepository.SaveAsync();
+            //    product.ProductImagesFiles.Add(new()
+            //    {
+            //        FileName = r.fileName,
+            //        Path = r.pathOrContainerName,
+            //        StorageType = _storageService.StorageName,
+            //        Products = new List<Product>() { product }
+            //    });
+            //}
+            //Buradaki foreach ustteki await blogu ile aynı isi yapar. Ikısını de yazdım. Ikısınden biri kullanılabilir.
 
 
-            //var data1 = fileReadRepository.GetAll(false);
-            //file icin db deki tum dosyalar getirilir cunku file bir base class tır.
-
-            //var data2 = productImageFileReadRepository.GetAll(false);
-            //db den sadece productimage turundeki file lar getirilir.
-
-            //var data3 = invoiceFileReadRepository.GetAll(false);
-            //db den sadece invoice turundeki file lar getirilir.
-
+            await _productImageFileWriteRepository.SaveAsync();
 
 
             return Ok();
@@ -159,4 +141,3 @@ namespace ECommerceAPI.API.Controllers
 
     }
 }
- 

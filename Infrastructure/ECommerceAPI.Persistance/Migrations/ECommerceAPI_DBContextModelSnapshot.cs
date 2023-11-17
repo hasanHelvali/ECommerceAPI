@@ -149,6 +149,21 @@ namespace ECommerceAPI.Persistance.Migrations
                     b.ToTable("OrderProduct");
                 });
 
+            modelBuilder.Entity("ProductProductImageFile", b =>
+                {
+                    b.Property<Guid>("ProductImagesFilesID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProductsID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("ProductImagesFilesID", "ProductsID");
+
+                    b.HasIndex("ProductsID");
+
+                    b.ToTable("ProductProductImageFile");
+                });
+
             modelBuilder.Entity("ECommerceAPI.Domain.Entities.InvoiceFile", b =>
                 {
                     b.HasBaseType("ECommerceAPI.Domain.Entities.File");
@@ -182,6 +197,21 @@ namespace ECommerceAPI.Persistance.Migrations
                     b.HasOne("ECommerceAPI.Domain.Entities.Order", null)
                         .WithMany()
                         .HasForeignKey("OrdersID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ECommerceAPI.Domain.Entities.Product", null)
+                        .WithMany()
+                        .HasForeignKey("ProductsID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ProductProductImageFile", b =>
+                {
+                    b.HasOne("ECommerceAPI.Domain.Entities.ProductImageFile", null)
+                        .WithMany()
+                        .HasForeignKey("ProductImagesFilesID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

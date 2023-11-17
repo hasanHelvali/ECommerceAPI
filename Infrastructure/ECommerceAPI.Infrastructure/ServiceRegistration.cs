@@ -25,7 +25,7 @@ namespace ECommerceAPI.Infrastructure
         {
             /*T eger IStorage dan turemis bir class ise eger bunu dogrula ve IStorage i talep eden yapıya gore buradaki T yi yani 
              class ı bana gonder.*/
-            serviceCollection.AddScoped<IStorage, T>();
+            serviceCollection.AddScoped<IStorage,T>();
         }
         public static void AddStorage(this IServiceCollection serviceCollection,StorageType storageType) 
         {

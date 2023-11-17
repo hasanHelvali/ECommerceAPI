@@ -17,3 +17,4 @@ C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerce
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\obj\Debug\net6.0\ref\ECommerceAPI.Persistance.dll
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\bin\Debug\net6.0\ECommerceAPI.Persistance.runtimeconfig.json
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\obj\Debug\net6.0\ECommerceAPI.Persistance.genruntimeconfig.cache
+C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\obj\Debug\net6.0\ECommerceAPI.Persistance.sourcelink.json

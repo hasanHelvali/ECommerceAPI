@@ -12,10 +12,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddPersistanceServices();
 builder.Services.AddInfrastructureServices();
 
-//builder.Services.AddStorage<LocalStorage>();
+builder.Services.AddStorage<LocalStorage>();
 //Burada IStorage talep ettigimde bunun gelmesini saglýyorum. Baska bir storage verirsem o gelir. 
 //Tek satýr kod uzerinden tum bunlarý duzenleyebilirim.
-builder.Services.AddStorage<AzureStorage>();
+//builder.Services.AddStorage<AzureStorage>();
 
 
 
@@ -25,7 +25,6 @@ builder.Services.AddStorage<AzureStorage>();
 //Bu sekilde bir talep etme islemi de yapýyor olabilirim. Burada da bir enum yapýsý kullanmýs oldum.
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
     options.AddDefaultPolicy(policy =>
             policy.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader().AllowAnyMethod()));
@@ -36,8 +35,6 @@ builder.Services.AddControllers(options=>options.Filters.Add<ValidationFilter>()
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
     app.UseCors();
 }
 app.UseCors();

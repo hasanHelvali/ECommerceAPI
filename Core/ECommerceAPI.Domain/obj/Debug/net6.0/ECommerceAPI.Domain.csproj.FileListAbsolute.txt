@@ -1,7 +1,6 @@
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Domain\bin\Debug\net6.0\ECommerceAPI.Domain.deps.json
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Domain\bin\Debug\net6.0\ECommerceAPI.Domain.dll
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Domain\bin\Debug\net6.0\ECommerceAPI.Domain.pdb
-C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Domain\obj\Debug\net6.0\ECommerceAPI.Domain.csproj.AssemblyReference.cache
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Domain\obj\Debug\net6.0\ECommerceAPI.Domain.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Domain\obj\Debug\net6.0\ECommerceAPI.Domain.AssemblyInfoInputs.cache
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Domain\obj\Debug\net6.0\ECommerceAPI.Domain.AssemblyInfo.cs
@@ -10,3 +9,4 @@ C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Domain
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Domain\obj\Debug\net6.0\refint\ECommerceAPI.Domain.dll
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Domain\obj\Debug\net6.0\ECommerceAPI.Domain.pdb
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Domain\obj\Debug\net6.0\ref\ECommerceAPI.Domain.dll
+C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Domain\obj\Debug\net6.0\ECommerceAPI.Domain.sourcelink.json
