@@ -7,6 +7,7 @@ using ECommerceAPI.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using System.Net;
 using System.Numerics;
 
@@ -26,12 +27,13 @@ namespace ECommerceAPI.API.Controllers
         readonly IInvioceFileReadRepository _invoiceFileReadRepository;
         readonly IInvoiceFileWriteRepository _invoiceFileWriteRepository;
         readonly IStorageService _storageService;
+        readonly IConfiguration _configuration ;
 
         public ProductsController(IProductWriteRepository productWriteRepository, IProductReadRepository productReadRepository,
             IWebHostEnvironment webHostEnvironment, IFileReadRepository fileReadRepository, IFileWriteRepository fileWriteRepository,
             IProductImageFileReadRepository productImageFileReadRepository, IProductImageFileWriteRepository productImageFileWriteRepository,
             IInvioceFileReadRepository invoiceFileReadRepository, IInvoiceFileWriteRepository invoiceFileWriteRepository,
-            IStorageService storageService)
+            IStorageService storageService, IConfiguration configuration)
         {
             this._productWriteRepository = productWriteRepository;
             this._productReadRepository = productReadRepository;
@@ -43,6 +45,7 @@ namespace ECommerceAPI.API.Controllers
             this._invoiceFileReadRepository = invoiceFileReadRepository;
             this._invoiceFileWriteRepository = invoiceFileWriteRepository;
             _storageService = storageService;
+            _configuration = configuration;
         }
 
 
@@ -119,25 +122,34 @@ namespace ECommerceAPI.API.Controllers
                 StorageType = _storageService.StorageName,
                 Products = new List<Product>() { product }
             }).ToList());
-
-            //foreach (var r in result)
-            //{
-            //    product.ProductImagesFiles.Add(new()
-            //    {
-            //        FileName = r.fileName,
-            //        Path = r.pathOrContainerName,
-            //        StorageType = _storageService.StorageName,
-            //        Products = new List<Product>() { product }
-            //    });
-            //}
-            //Buradaki foreach ustteki await blogu ile aynı isi yapar. Ikısını de yazdım. Ikısınden biri kullanılabilir.
-
-
             await _productImageFileWriteRepository.SaveAsync();
-
-
             return Ok();
         }
 
+        [HttpGet("[action]/{id}")]
+        public async Task<IActionResult> GetProductImages(string id)
+        {
+            Product? product = await _productReadRepository.Table.Include(p => p.ProductImagesFiles)//productImageFiles ile iliskisel olan dosyalar getirilir.
+                .FirstOrDefaultAsync(p => p.ID == Guid.Parse(id));//Bunların uzerinden ayıklama yapılır.
+            return Ok(product.ProductImagesFiles.Select(p => new
+            {
+                Path = $"{_configuration["BaseStorageUrl"]}/{p.Path}",
+                //p.Path,
+                p.FileName,
+                p.ID
+                //Bana gelen product tan bu yapılari bana don demis oluyorum.
+            }));
+        }
+
+        [HttpDelete("[action]/{id}")]
+        public async Task<IActionResult> DeleteProductImage(string id,string imageId)
+        {
+            Product? product = await _productReadRepository.Table.Include(p => p.ProductImagesFiles)
+                .FirstOrDefaultAsync(p => p.ID == Guid.Parse(id));
+            ProductImageFile? productImageFile = product.ProductImagesFiles.FirstOrDefault(p=>p.ID==Guid.Parse(imageId));
+            product.ProductImagesFiles.Remove(productImageFile);
+            await _productWriteRepository.SaveAsync();
+            return Ok();
+        }
     }
 }
