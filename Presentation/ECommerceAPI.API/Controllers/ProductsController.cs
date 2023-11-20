@@ -1,9 +1,12 @@
 ﻿using ECommerceAPI.Application.Abstractions;
 using ECommerceAPI.Application.Abstractions.Storage;
+using ECommerceAPI.Application.Features.Commands.CreateProduct;
+using ECommerceAPI.Application.Features.Queries.GetAllProduct;
 using ECommerceAPI.Application.Repositories;
 using ECommerceAPI.Application.RequestParameters;
 using ECommerceAPI.Application.ViewModels.Products;
 using ECommerceAPI.Domain.Entities;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
@@ -27,13 +30,15 @@ namespace ECommerceAPI.API.Controllers
         readonly IInvioceFileReadRepository _invoiceFileReadRepository;
         readonly IInvoiceFileWriteRepository _invoiceFileWriteRepository;
         readonly IStorageService _storageService;
-        readonly IConfiguration _configuration ;
+        readonly IConfiguration _configuration;
 
+        //MediatR tasarım desenine yavas yavas geciyoruz.
+        readonly IMediator _mediator;
         public ProductsController(IProductWriteRepository productWriteRepository, IProductReadRepository productReadRepository,
             IWebHostEnvironment webHostEnvironment, IFileReadRepository fileReadRepository, IFileWriteRepository fileWriteRepository,
             IProductImageFileReadRepository productImageFileReadRepository, IProductImageFileWriteRepository productImageFileWriteRepository,
             IInvioceFileReadRepository invoiceFileReadRepository, IInvoiceFileWriteRepository invoiceFileWriteRepository,
-            IStorageService storageService, IConfiguration configuration)
+            IStorageService storageService, IConfiguration configuration, IMediator mediator)
         {
             this._productWriteRepository = productWriteRepository;
             this._productReadRepository = productReadRepository;
@@ -46,11 +51,14 @@ namespace ECommerceAPI.API.Controllers
             this._invoiceFileWriteRepository = invoiceFileWriteRepository;
             _storageService = storageService;
             _configuration = configuration;
+
+            //MediatR tasarım desenine yavas yavas geciyoruz.
+            _mediator = mediator;
         }
 
 
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] Pagination pagination)
+        /*public async Task<IActionResult> Get([FromQuery] Pagination pagination)
         {
             var totalCount = _productReadRepository.GetAll().Count();
             var products = _productReadRepository.GetAll(false)
@@ -70,6 +78,14 @@ namespace ECommerceAPI.API.Controllers
                 products,
                 totalCount
             });
+        }*/
+
+        //Buradaki butun kod yapısı mediatR uygulamasından dolayı applicaitın katmanına alındı.
+        //Artık buradaki operasyonun sorumlulugu handler sınıflarındadir.
+        public async Task<IActionResult> Get([FromQuery] GetAllProductQueryRequest getAllProductQueryRequest)
+        {
+            GetAllProductQueryResponse getAllProductQueryResponse = await _mediator.Send(getAllProductQueryRequest);
+            return Ok(getAllProductQueryResponse);
         }
 
         [HttpGet("{id}")]
@@ -79,10 +95,16 @@ namespace ECommerceAPI.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(VM_Create_Product model)
+        //public async Task<IActionResult> Post(VM_Create_Product model)
+        //{
+        //    await _productWriteRepository.AddAsync(new Product { Name = model.Name, Price = model.Price, Stock = model.Stock });
+        //    await _productWriteRepository.SaveAsync();
+        //    return StatusCode((int)HttpStatusCode.Created);
+        //}
+
+        public async Task<IActionResult> Post(CreateProductCommandRequest createProductCommandRequest )
         {
-            await _productWriteRepository.AddAsync(new Product { Name = model.Name, Price = model.Price, Stock = model.Stock });
-            await _productWriteRepository.SaveAsync();
+            CreateProductCommandResponse createProductCommandResponse=await _mediator.Send(createProductCommandRequest);
             return StatusCode((int)HttpStatusCode.Created);
         }
 
@@ -142,11 +164,11 @@ namespace ECommerceAPI.API.Controllers
         }
 
         [HttpDelete("[action]/{id}")]
-        public async Task<IActionResult> DeleteProductImage(string id,string imageId)
+        public async Task<IActionResult> DeleteProductImage(string id, string imageId)
         {
             Product? product = await _productReadRepository.Table.Include(p => p.ProductImagesFiles)
                 .FirstOrDefaultAsync(p => p.ID == Guid.Parse(id));
-            ProductImageFile? productImageFile = product.ProductImagesFiles.FirstOrDefault(p=>p.ID==Guid.Parse(imageId));
+            ProductImageFile? productImageFile = product.ProductImagesFiles.FirstOrDefault(p => p.ID == Guid.Parse(imageId));
             product.ProductImagesFiles.Remove(productImageFile);
             await _productWriteRepository.SaveAsync();
             return Ok();

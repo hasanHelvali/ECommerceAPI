@@ -109,3 +109,6 @@ C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAP
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ECommerceAPI.API.props
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ECommerceAPI.API.props
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\MediatR.dll
+C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\MediatR.Contracts.dll
+C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll

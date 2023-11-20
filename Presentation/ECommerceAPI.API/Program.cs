@@ -1,3 +1,4 @@
+using ECommerceAPI.Application;
 using ECommerceAPI.Application.Validators.Products;
 using ECommerceAPI.Infrastructure;
 using ECommerceAPI.Infrastructure.Filters;
@@ -32,6 +33,9 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers(options=>options.Filters.Add<ValidationFilter>())
     .AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<CreateProductValidator>())
     .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter=true);
+
+builder.Services.AddApplicationServices();//Burada application katmanýndaki konfigurasyonlarý projeme dahil etmis oldum.
+
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
