@@ -12,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddPersistanceServices();
 builder.Services.AddInfrastructureServices();
+builder.Services.AddApplicationServices();//Burada application katmanýndaki konfigurasyonlarý projeme dahil etmis oldum.
 
 builder.Services.AddStorage<LocalStorage>();
 //Burada IStorage talep ettigimde bunun gelmesini saglýyorum. Baska bir storage verirsem o gelir. 
@@ -34,7 +35,6 @@ builder.Services.AddControllers(options=>options.Filters.Add<ValidationFilter>()
     .AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<CreateProductValidator>())
     .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter=true);
 
-builder.Services.AddApplicationServices();//Burada application katmanýndaki konfigurasyonlarý projeme dahil etmis oldum.
 
 var app = builder.Build();
 if (app.Environment.IsDevelopment())

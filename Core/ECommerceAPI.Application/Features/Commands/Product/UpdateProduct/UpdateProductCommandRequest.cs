@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECommerceAPI.Application.Features.Commands.CreateProduct
+namespace ECommerceAPI.Application.Features.Commands.Product.UpdateProduct
 {
-    public class CreateProductCommandRequest:IRequest<CreateProductCommandResponse>
+    public class UpdateProductCommandRequest:IRequest<UpdateProductCommandResponse>
     {
+        public string ID { get; set; }
         public string Name { get; set; }
         public int Stock { get; set; }
         public float Price { get; set; }

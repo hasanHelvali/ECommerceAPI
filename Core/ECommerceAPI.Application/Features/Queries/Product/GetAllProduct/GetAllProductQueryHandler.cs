@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECommerceAPI.Application.Features.Queries.GetAllProduct
+namespace ECommerceAPI.Application.Features.Queries.Product.GetAllProduct
 {
     public class GetAllProductQueryHandler : IRequestHandler<GetAllProductQueryRequest, GetAllProductQueryResponse>
     {
@@ -21,7 +21,7 @@ namespace ECommerceAPI.Application.Features.Queries.GetAllProduct
 
         public async Task<GetAllProductQueryResponse> Handle(GetAllProductQueryRequest request, CancellationToken cancellationToken)
         {
-            
+
             var totalCount = _productReadRepository.GetAll().Count();
             var products = _productReadRepository.GetAll(false)
                 .Skip(request.Page * request.Size)
@@ -36,7 +36,7 @@ namespace ECommerceAPI.Application.Features.Queries.GetAllProduct
                     p.UpdatedDate
                 }).ToList();
 
-            return new ()
+            return new()
             {
                 Products = products,
                 TotalCount = totalCount
