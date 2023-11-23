@@ -1,5 +1,6 @@
 ﻿using ECommerceAPI.Application.Abstractions;
 using ECommerceAPI.Application.Repositories;
+using ECommerceAPI.Domain.Entities.Identity;
 using ECommerceAPI.Persistance.Concretes;
 using ECommerceAPI.Persistance.Contexts;
 using ECommerceAPI.Persistance.InvoiceFile;
@@ -23,24 +24,30 @@ namespace ECommerceAPI.Persistance
 
             services.AddDbContext<ECommerceAPI_DBContext>(options => options.UseSqlServer(Configuration.ConnectionString),
                 ServiceLifetime.Singleton);
-            services.AddSingleton<ICustomerReadRepository,CustomerReadRepository>();//ICustomerRR istenince CustomerRR don.
-            //Ilgili varlıkların davranıslarına gore singleton,scoped vs seklinde eklenebilir.
+
+            services.AddIdentity<AppUser, AppRole>(options =>
+            {
+                //Burada ilgili default gelen yapılandırmaları eziyorum.
+                options.Password.RequiredLength = 3;
+                options.Password.RequireNonAlphanumeric=false;
+                options.Password.RequireDigit=false;
+                options.Password.RequireLowercase= false;
+                options.Password.RequireUppercase= false;
+            }).AddEntityFrameworkStores<ECommerceAPI_DBContext>();
+            //Idenity Kutuphanesi burada uygulamaya dahil edildi.
+
+            services.AddSingleton<ICustomerReadRepository,CustomerReadRepository>();
             services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();
             services.AddScoped<IOrderReadRepository, OrderReadRepository>();
             services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
             services.AddScoped<IProductReadRepository, ProductReadRepository>();
             services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
-            //Butun service ler bu sekilde eklenmis oldular.
-
             services.AddScoped<IFileReadRepository , FileReadRepository>();
             services.AddScoped<IFileWriteRepository, FileWriteRepository>();
-            
             services.AddScoped<IProductImageFileReadRepository, ProductImageFileReadRepository>();
             services.AddScoped<IProductImageFileWriteRepository, ProductImageFileWriteRepository>();
-            
             services.AddScoped<IInvioceFileReadRepository, InvoiceFileReadRepository>();
             services.AddScoped<IInvoiceFileWriteRepository, InvoiceFileWriteRepository>();
-
         }
     }
 }

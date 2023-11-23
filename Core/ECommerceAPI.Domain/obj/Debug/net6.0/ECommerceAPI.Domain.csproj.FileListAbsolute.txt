@@ -10,3 +10,4 @@ C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Domain
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Domain\obj\Debug\net6.0\ECommerceAPI.Domain.pdb
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Domain\obj\Debug\net6.0\ref\ECommerceAPI.Domain.dll
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Domain\obj\Debug\net6.0\ECommerceAPI.Domain.sourcelink.json
+C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Domain\obj\Debug\net6.0\ECommerceAPI.Domain.csproj.AssemblyReference.cache
