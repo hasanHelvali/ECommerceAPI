@@ -11,6 +11,7 @@
           "ECommerceAPI.Application": "1.0.0",
           "ECommerceAPI.Infrastructure": "1.0.0",
           "ECommerceAPI.Persistance": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.25",
           "Microsoft.AspNetCore.Cors": "2.2.0",
           "Microsoft.EntityFrameworkCore.Design": "7.0.12",
           "Swashbuckle.AspNetCore": "6.2.3"
@@ -176,6 +177,17 @@
           "Microsoft.AspNetCore.Authentication.Abstractions": "2.2.0",
           "Microsoft.AspNetCore.Http": "2.2.0",
           "Microsoft.AspNetCore.Http.Extensions": "2.2.0"
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.25": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.24.0"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "assemblyVersion": "6.0.25.0",
+            "fileVersion": "6.0.2523.52315"
+          }
         }
       },
       "Microsoft.AspNetCore.Cors/2.2.0": {
@@ -1097,7 +1109,8 @@
       "ECommerceAPI.Infrastructure/1.0.0": {
         "dependencies": {
           "Azure.Storage.Blobs": "12.19.1",
-          "ECommerceAPI.Application": "1.0.0"
+          "ECommerceAPI.Application": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.25"
         },
         "runtime": {
           "ECommerceAPI.Infrastructure.dll": {}
@@ -1231,6 +1244,13 @@
       "sha512": "sha512-XlVJzJ5wPOYW+Y0J6Q/LVTEyfS4ssLXmt60T0SPP+D8abVhBTl+cgw2gDHlyKYIkcJg7btMVh383NDkMVqD/fg==",
       "path": "microsoft.aspnetcore.authentication.core/2.2.0",
       "hashPath": "microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.25": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bc7KZZRAHLpeuznhuQWGHW7kNDRvKsUY7fPq9ftOBLR8DUtyTF1amgHxbHKg9sveTGwrJPiBf4b42pVTYlRccg==",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/6.0.25",
+      "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.6.0.25.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cors/2.2.0": {
       "type": "package",

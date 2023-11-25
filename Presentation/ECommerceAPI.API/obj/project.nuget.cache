@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2GdTdqtaNIqC5jb9eArq+1JCdDltkj8KH2cSTyhzetrjf/2mg8W+XU0FIRS2KCHtXqqpwdUeqCBAzRYOBmD9fA==",
+  "dgSpecHash": "BNi4BiufAH56t549bk+vKaurNapgAQYfC2KVoMnIqSJdpE/2Ivxt4MacZFo0aMbOQnB/ZXqXZnRoqrgT1noAlg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Hasan Helvalı\\Desktop\\E-Commerce\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\ECommerceAPI.API.csproj",
   "expectedPackageFiles": [
@@ -19,6 +19,7 @@
     "C:\\Users\\Hasan Helvalı\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Hasan Helvalı\\.nuget\\packages\\microsoft.aspnetcore.authentication.cookies\\2.2.0\\microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",
     "C:\\Users\\Hasan Helvalı\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
+    "C:\\Users\\Hasan Helvalı\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.25\\microsoft.aspnetcore.authentication.jwtbearer.6.0.25.nupkg.sha512",
     "C:\\Users\\Hasan Helvalı\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
     "C:\\Users\\Hasan Helvalı\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.24\\microsoft.aspnetcore.cryptography.internal.6.0.24.nupkg.sha512",
     "C:\\Users\\Hasan Helvalı\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.24\\microsoft.aspnetcore.cryptography.keyderivation.6.0.24.nupkg.sha512",

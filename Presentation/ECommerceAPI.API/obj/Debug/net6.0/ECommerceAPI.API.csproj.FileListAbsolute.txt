@@ -117,3 +117,4 @@ C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAP
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

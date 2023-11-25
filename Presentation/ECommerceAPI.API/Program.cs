@@ -7,6 +7,9 @@ using ECommerceAPI.Infrastructure.Services.Storage.Local;
 using ECommerceAPI.Persistance;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +38,26 @@ builder.Services.AddControllers(options=>options.Filters.Add<ValidationFilter>()
     .AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<CreateProductValidator>())
     .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter=true);
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    //Bir authorization islemi yapacaksan admin isminde yap.
+    .AddJwtBearer("Admin", options =>
+    {
+        //Jwt kullan
+        options.TokenValidationParameters = new()
+        {
+            //jwt ile ilgili buradaki konfigurasyonel degerleri kullan.
+            ValidateAudience = true,//Olusturulacak token degerini kimlerin/hangi originlerin/sitelerin kullanacagýný belirledigimiz degerdir.
+            ValidateIssuer = true,//Olusturulacak token degerini kimin dagýttýgýný ifade ettigimiz alandýr.
+            ValidateLifetime = true,//Olusturulan token degerinin suresini kontrol edecek olan dogrulamadýr.
+            ValidateIssuerSigningKey = true,//simetrik secrek bir keydir. Bu key bizim urettigimiz key lerden biri mi? sorusunun dogrulanmasýdýr.
+            //Gelen key de nelere bakýlacagýný burada bildirmis oldum.
+
+            ValidAudience = builder.Configuration["Token:Audience"],
+            ValidIssuer = builder.Configuration["Token:Issuer"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:SecurityKey"]))
+        };
+    });
+//builder.Services.AddAuthorization();
 
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
@@ -46,7 +69,9 @@ app.UseCors();
 app.UseStaticFiles();
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
+//Bu iki middleware authentication ve authorization islemleri icin onemlidir.
 
 
 app.MapControllers();
