@@ -14,3 +14,19 @@ C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Applic
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\obj\Debug\net6.0\ECommerceAPI.Application.pdb
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\obj\Debug\net6.0\ref\ECommerceAPI.Application.dll
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\obj\Debug\net6.0\ECommerceAPI.Application.sourcelink.json
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\bin\Debug\net6.0\ECommerceAPI.Application.deps.json
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\bin\Debug\net6.0\ECommerceAPI.Application.dll
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\bin\Debug\net6.0\ECommerceAPI.Application.pdb
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\bin\Debug\net6.0\ECommerceAPI.Domain.dll
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\bin\Debug\net6.0\ECommerceAPI.Domain.pdb
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\obj\Debug\net6.0\ECommerceAPI.Application.csproj.AssemblyReference.cache
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\obj\Debug\net6.0\ECommerceAPI.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\obj\Debug\net6.0\ECommerceAPI.Application.AssemblyInfoInputs.cache
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\obj\Debug\net6.0\ECommerceAPI.Application.AssemblyInfo.cs
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\obj\Debug\net6.0\ECommerceAPI.Application.csproj.CoreCompileInputs.cache
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\obj\Debug\net6.0\ECommerceAPI.Application.sourcelink.json
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\obj\Debug\net6.0\ECommerceAPI.Application.csproj.CopyComplete
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\obj\Debug\net6.0\ECommerceAPI.Application.dll
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\obj\Debug\net6.0\refint\ECommerceAPI.Application.dll
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\obj\Debug\net6.0\ECommerceAPI.Application.pdb
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Core\ECommerceAPI.Application\obj\Debug\net6.0\ref\ECommerceAPI.Application.dll

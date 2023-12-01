@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6bwn6mPxk3YqRX27qfEs/MO/6USEHW/bZevZ1XGp7no=",
+  "Hash": "4KCjlFUvypTtJMxWOVGAxRPQqn2Nh6Tptr+nIst+HW8=",
   "Source": "ECommerceAPI.API",
   "BasePath": "_content/ECommerceAPI.API",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "ECommerceAPI.API\\wwwroot",
       "Source": "ECommerceAPI.API",
-      "ContentRoot": "C:\\Users\\Hasan Helvalı\\Desktop\\E-Commerce\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Hasan_Helvali\\Desktop\\E-Commerce\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\",
       "BasePath": "_content/ECommerceAPI.API",
       "Pattern": "**"
     }

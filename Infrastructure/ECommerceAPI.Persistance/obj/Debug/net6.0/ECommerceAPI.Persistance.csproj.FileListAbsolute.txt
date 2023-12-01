@@ -18,3 +18,23 @@ C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerce
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\bin\Debug\net6.0\ECommerceAPI.Persistance.runtimeconfig.json
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\obj\Debug\net6.0\ECommerceAPI.Persistance.genruntimeconfig.cache
 C:\Users\Hasan Helvalı\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\obj\Debug\net6.0\ECommerceAPI.Persistance.sourcelink.json
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\bin\Debug\net6.0\ECommerceAPI.Persistance.deps.json
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\bin\Debug\net6.0\ECommerceAPI.Persistance.runtimeconfig.json
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\bin\Debug\net6.0\ECommerceAPI.Persistance.dll
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\bin\Debug\net6.0\ECommerceAPI.Persistance.pdb
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\bin\Debug\net6.0\ECommerceAPI.Application.dll
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\bin\Debug\net6.0\ECommerceAPI.Domain.dll
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\bin\Debug\net6.0\ECommerceAPI.Application.pdb
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\bin\Debug\net6.0\ECommerceAPI.Domain.pdb
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\obj\Debug\net6.0\ECommerceAPI.Persistance.csproj.AssemblyReference.cache
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\obj\Debug\net6.0\ECommerceAPI.Persistance.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\obj\Debug\net6.0\ECommerceAPI.Persistance.AssemblyInfoInputs.cache
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\obj\Debug\net6.0\ECommerceAPI.Persistance.AssemblyInfo.cs
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\obj\Debug\net6.0\ECommerceAPI.Persistance.csproj.CoreCompileInputs.cache
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\obj\Debug\net6.0\ECommerceAPI.Persistance.sourcelink.json
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\obj\Debug\net6.0\ECommerceAPI.Persistance.csproj.CopyComplete
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\obj\Debug\net6.0\ECommerceAPI.Persistance.dll
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\obj\Debug\net6.0\refint\ECommerceAPI.Persistance.dll
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\obj\Debug\net6.0\ECommerceAPI.Persistance.pdb
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\obj\Debug\net6.0\ECommerceAPI.Persistance.genruntimeconfig.cache
+C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Infrastructure\ECommerceAPI.Persistance\obj\Debug\net6.0\ref\ECommerceAPI.Persistance.dll

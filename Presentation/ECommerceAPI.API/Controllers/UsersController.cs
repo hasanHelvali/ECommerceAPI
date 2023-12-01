@@ -1,5 +1,6 @@
-﻿using ECommerceAPI.Application.Features.AppUser.CreateUser;
-using ECommerceAPI.Application.Features.AppUser.LoginUser;
+﻿using ECommerceAPI.Application.Features.Commands.AppUser.CreateUser;
+using ECommerceAPI.Application.Features.Commands.AppUser.GoogleLogin;
+using ECommerceAPI.Application.Features.Commands.AppUser.LoginUser;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +17,11 @@ namespace ECommerceAPI.API.Controllers
         {
             _mediator = mediator;
         }
+        [HttpGet]
+        public async Task<string> selamla()
+        {
+            return "Selamun Aleykum";
+        }
 
         [HttpPost]
         public async  Task<IActionResult> Create(CreateUserCommandRequest createUserCommandRequest)
@@ -28,6 +34,16 @@ namespace ECommerceAPI.API.Controllers
         {
             LoginUserCommandResponse loginUserCommandResponse = await _mediator.Send(loginUserCommandRequest);
             return Ok(loginUserCommandResponse);
+        }
+
+        [HttpPost("google-login")]
+        public async Task<IActionResult> GoogleLogin(GoogleLoginCommandRequest googleLoginCommandRequest)
+        {
+            GoogleLoginCommandResponse googleLoginCommandResponse = await _mediator.Send(googleLoginCommandRequest);
+            //Gelen istek mediator ile handler a gonderildi. response elde edildi.
+
+            return Ok(googleLoginCommandResponse);
+
         }
     }
 }

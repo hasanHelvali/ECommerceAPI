@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECommerceAPI.Application.Features.AppUser.LoginUser
+namespace ECommerceAPI.Application.Features.Commands.AppUser.LoginUser
 {
     public class LoginUserCommandHandler : IRequestHandler<LoginUserCommandRequest, LoginUserCommandResponse>
     {
@@ -40,15 +40,16 @@ namespace ECommerceAPI.Application.Features.AppUser.LoginUser
             {
                 //Yetkilerin Burada belirlenmesi gerekir. Yani olusturulan bir token sınıfını cagırıyor olalım.
                 DTOs.Token token = _tokenHandler.CreateAccessToken(5);//5dk lik bir access token olusturmus oldum. Bunu da token nesnesi uzerinde tasıyorum.
-                return new LoginUserSuccessComandResponse{ 
-                Token=token
+                return new LoginUserSuccessComandResponse
+                {
+                    Token = token
                 };
             }
             //return new LoginUserErrorComandResponse
             //{
             //    Message = "Kullanıcı Adı veya Şifre Hatalı...!"
             //};
-            throw new AuthenticationErrorException(); 
+            throw new AuthenticationErrorException();
             //Ikı sekilde de donus yapabiliriz.
         }
     }

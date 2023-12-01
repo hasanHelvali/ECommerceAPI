@@ -3,7 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using U = ECommerceAPI.Domain.Entities.Identity;
 
-namespace ECommerceAPI.Application.Features.AppUser.CreateUser
+namespace ECommerceAPI.Application.Features.Commands.AppUser.CreateUser
 {
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommandRequest, CreateUserCommandResponse>
     {
@@ -18,14 +18,14 @@ namespace ECommerceAPI.Application.Features.AppUser.CreateUser
         {
             IdentityResult identityResult = await _userManager.CreateAsync(new U.AppUser
             {
-                Id=Guid.NewGuid().ToString(),
+                Id = Guid.NewGuid().ToString(),
                 UserName = request.UserName,
                 Email = request.Email,
                 NameSurname = request.NameSurname,
-                Telephone = request.Telephone,
             }, request.Password);
 
-            CreateUserCommandResponse response= new CreateUserCommandResponse() { 
+            CreateUserCommandResponse response = new CreateUserCommandResponse()
+            {
                 Succeeded = identityResult.Succeeded,
             };
             if (identityResult.Succeeded)
