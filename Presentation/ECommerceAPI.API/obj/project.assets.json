@@ -2027,7 +2027,6 @@
           "FluentValidation": "11.8.0",
           "FluentValidation.AspNetCore": "11.3.0",
           "FluentValidation.DependencyInjectionExtensions": "11.8.0",
-          "Google.Apis.Auth": "1.64.0",
           "MediatR": "11.0.0",
           "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "Microsoft.EntityFrameworkCore": "7.0.12"
@@ -2073,6 +2072,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "ECommerceAPI.Application": "1.0.0",
+          "Google.Apis.Auth": "1.64.0",
           "Microsoft.AspNetCore.Identity": "2.2.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.24",
           "Microsoft.EntityFrameworkCore": "7.0.12",

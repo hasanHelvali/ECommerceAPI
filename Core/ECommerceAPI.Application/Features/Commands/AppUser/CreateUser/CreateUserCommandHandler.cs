@@ -1,4 +1,6 @@
-﻿using ECommerceAPI.Application.Exceptions;
+﻿using ECommerceAPI.Application.Abstractions.Services;
+using ECommerceAPI.Application.DTOs.User;
+using ECommerceAPI.Application.Exceptions;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using U = ECommerceAPI.Domain.Entities.Identity;
@@ -7,35 +9,30 @@ namespace ECommerceAPI.Application.Features.Commands.AppUser.CreateUser
 {
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommandRequest, CreateUserCommandResponse>
     {
-        readonly UserManager<U.AppUser> _userManager;
+        readonly IUserService _userService;
 
-        public CreateUserCommandHandler(UserManager<U.AppUser> userManager)
+        public CreateUserCommandHandler(IUserService userService)
         {
-            _userManager = userManager;
+            _userService = userService;
         }
 
         public async Task<CreateUserCommandResponse> Handle(CreateUserCommandRequest request, CancellationToken cancellationToken)
         {
-            IdentityResult identityResult = await _userManager.CreateAsync(new U.AppUser
+           CreateUserResponse createUserResponse = await _userService.CreateAsync(new()
             {
-                Id = Guid.NewGuid().ToString(),
-                UserName = request.UserName,
                 Email = request.Email,
                 NameSurname = request.NameSurname,
-            }, request.Password);
-
-            CreateUserCommandResponse response = new CreateUserCommandResponse()
+                Password = request.Password,
+                PasswordConfirm = request.PasswordConfirm,
+                UserName = request.UserName,
+            });
+            /*Burada elde edilen CreateUserResponse DTO nesnesini CreateUserCommandResponse nesnesine cast etmem gerekiyor. 
+            Bunu return edderken yapabilirim. */
+            return new()
             {
-                Succeeded = identityResult.Succeeded,
+                Message= createUserResponse.Message,
+                Succeeded=createUserResponse.Succeeded,
             };
-            if (identityResult.Succeeded)
-                response.Message = "Kullanıcı Kaydı Başarıyla Yapıldı.";
-            else
-                foreach (var error in identityResult.Errors)
-                    response.Message += $"{error.Code}-{error.Description}\n";
-
-            return response;
-            //throw new UserCreateFailedException();
         }
     }
 }

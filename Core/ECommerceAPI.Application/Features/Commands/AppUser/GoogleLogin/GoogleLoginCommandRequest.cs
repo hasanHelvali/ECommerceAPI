@@ -17,7 +17,6 @@ namespace ECommerceAPI.Application.Features.Commands.AppUser.GoogleLogin
         public string Email { get; set; }
         public string PhotoUrl { get; set; }
         public string Provider { get; set; }
-        //Google dan dogrulama yapıldıgında bize gelecek olan veriler bunlardır.
         
     }
 }

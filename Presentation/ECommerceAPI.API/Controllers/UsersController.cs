@@ -29,21 +29,6 @@ namespace ECommerceAPI.API.Controllers
             CreateUserCommandResponse createCommandRequestResponse = await _mediator.Send(createUserCommandRequest);
             return Ok(createCommandRequestResponse);
         }
-        [HttpPost("[action]")]
-        public async Task<IActionResult> Login(LoginUserCommandRequest loginUserCommandRequest)
-        {
-            LoginUserCommandResponse loginUserCommandResponse = await _mediator.Send(loginUserCommandRequest);
-            return Ok(loginUserCommandResponse);
-        }
-
-        [HttpPost("google-login")]
-        public async Task<IActionResult> GoogleLogin(GoogleLoginCommandRequest googleLoginCommandRequest)
-        {
-            GoogleLoginCommandResponse googleLoginCommandResponse = await _mediator.Send(googleLoginCommandRequest);
-            //Gelen istek mediator ile handler a gonderildi. response elde edildi.
-
-            return Ok(googleLoginCommandResponse);
-
-        }
+        
     }
 }

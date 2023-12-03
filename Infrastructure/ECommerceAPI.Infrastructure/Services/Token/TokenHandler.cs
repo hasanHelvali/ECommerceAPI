@@ -19,7 +19,7 @@ namespace ECommerceAPI.Infrastructure.Services.Token
             _configuration = configuration;
         }
 
-        public Application.DTOs.Token CreateAccessToken(int minute)
+        public Application.DTOs.Token CreateAccessToken(int second)
         {
             Application.DTOs.Token token = new Application.DTOs.Token();
 
@@ -31,7 +31,7 @@ namespace ECommerceAPI.Infrastructure.Services.Token
             //SecurityKey burada sifrelenmis oldu.
 
             //Olusturulacak token ayarlarını veriyoruz.
-            token.Expiration = DateTime.UtcNow.AddMinutes(minute);//Token in suresini belirledik.
+            token.Expiration = DateTime.UtcNow.AddMinutes(second);//Token in suresini belirledik.
             JwtSecurityToken securityToken = new(//Bir token olustur. Bu token in temel bilgilerini sana veriyorum.
                 audience: _configuration["Token:Audience"],
                 issuer: _configuration["Token:Issuer"],
