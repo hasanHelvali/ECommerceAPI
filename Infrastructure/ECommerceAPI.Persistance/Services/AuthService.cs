@@ -10,7 +10,9 @@ using Google.Apis.Auth;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,13 +27,15 @@ namespace ECommerceAPI.Persistance.Services
         readonly UserManager<Domain.Entities.Identity.AppUser> _userManager;
         readonly ITokenHandler _tokenHandler;
         readonly SignInManager<Domain.Entities.Identity.AppUser> _signInManager;
+        readonly IUserService _userService;
 
-        public AuthService(IConfiguration configuration, UserManager<Domain.Entities.Identity.AppUser> userManager, ITokenHandler tokenHandler, SignInManager<AppUser> signInManager)
+        public AuthService(IConfiguration configuration, UserManager<Domain.Entities.Identity.AppUser> userManager, ITokenHandler tokenHandler, SignInManager<AppUser> signInManager, IUserService userService)
         {
             _configuration = configuration;
             _userManager = userManager;
             _tokenHandler = tokenHandler;
             _signInManager = signInManager;
+            _userService = userService;
         }
 
         public async Task<Token> GoogleLoginAsync(string idToken, int accessTokenLifeTime)
@@ -45,7 +49,7 @@ namespace ECommerceAPI.Persistance.Services
             var info = new UserLoginInfo("GOOGLE", payload.Subject, "GOOGLE");
             Domain.Entities.Identity.AppUser user = await _userManager.FindByLoginAsync(info.LoginProvider, info.ProviderKey);
 
-            return await CreateUserExternalAsync(user,payload.Email,payload.Name,info,accessTokenLifeTime);
+            return await CreateUserExternalAsync(user, payload.Email, payload.Name, info, accessTokenLifeTime);
         }
 
         public async Task<Token> LoginAsync(string userNameOrEmail, string password, int accessTokenLifeTime)
@@ -61,13 +65,27 @@ namespace ECommerceAPI.Persistance.Services
             if (signInResult.Succeeded)
             {
                 Token token = _tokenHandler.CreateAccessToken(accessTokenLifeTime);
+                await _userService.UpdateRefreshToken(token.RefreshToken, user, token.Expiration, 15);
                 return token;
 
             }
             throw new AuthenticationErrorException();
         }
 
-        async Task<Token> CreateUserExternalAsync(AppUser user,string Email,string Name,UserLoginInfo info,int accessTokenLifeTime)
+        public async Task<Token> RefreshTokenLoginAsync(string refreshToken)
+        {
+            AppUser? user = await _userManager.Users.FirstOrDefaultAsync(u => u.RefreshToken == refreshToken);
+            if (user != null && user?.RefreshTokenEndDate > DateTime.UtcNow)
+            {
+                Token token = _tokenHandler.CreateAccessToken(15);
+                await _userService.UpdateRefreshToken(token.RefreshToken,user,token.Expiration,15);
+                return token;
+            }
+            else
+                throw new NotFoundUserException();
+        }
+
+        async Task<Token> CreateUserExternalAsync(AppUser user, string Email, string Name, UserLoginInfo info, int accessTokenLifeTime)
         {
             bool result = user != null;
 
@@ -92,6 +110,7 @@ namespace ECommerceAPI.Persistance.Services
             {
                 await _userManager.AddLoginAsync(user, info);
                 Token token = _tokenHandler.CreateAccessToken(accessTokenLifeTime);
+                await _userService.UpdateRefreshToken(token.RefreshToken, user, token.Expiration, 15);
                 return token;
             }
             throw new Exception("Invalid External Authentication");
