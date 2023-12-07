@@ -2351,6 +2351,19 @@
         "runtime": {
           "bin/placeholder/ECommerceAPI.Persistance.dll": {}
         }
+      },
+      "ECommerceAPI.SignalR/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ECommerceAPI.Application": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ECommerceAPI.SignalR.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ECommerceAPI.SignalR.dll": {}
+        }
       }
     }
   },
@@ -5684,6 +5697,11 @@
       "type": "project",
       "path": "../../Infrastructure/ECommerceAPI.Persistance/ECommerceAPI.Persistance.csproj",
       "msbuildProject": "../../Infrastructure/ECommerceAPI.Persistance/ECommerceAPI.Persistance.csproj"
+    },
+    "ECommerceAPI.SignalR/1.0.0": {
+      "type": "project",
+      "path": "../../Infrastructure/ECommerceAPI.SignalR/ECommerceAPI.SignalR.csproj",
+      "msbuildProject": "../../Infrastructure/ECommerceAPI.SignalR/ECommerceAPI.SignalR.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5691,6 +5709,7 @@
       "ECommerceAPI.Application >= 1.0.0",
       "ECommerceAPI.Infrastructure >= 1.0.0",
       "ECommerceAPI.Persistance >= 1.0.0",
+      "ECommerceAPI.SignalR >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.25",
       "Microsoft.AspNetCore.Cors >= 2.2.0",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.12",
@@ -5741,6 +5760,9 @@
             },
             "C:\\Users\\Hasan_Helvali\\Desktop\\E-Commerce\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Persistance\\ECommerceAPI.Persistance.csproj": {
               "projectPath": "C:\\Users\\Hasan_Helvali\\Desktop\\E-Commerce\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Persistance\\ECommerceAPI.Persistance.csproj"
+            },
+            "C:\\Users\\Hasan_Helvali\\Desktop\\E-Commerce\\ECommerceAPI\\Infrastructure\\ECommerceAPI.SignalR\\ECommerceAPI.SignalR.csproj": {
+              "projectPath": "C:\\Users\\Hasan_Helvali\\Desktop\\E-Commerce\\ECommerceAPI\\Infrastructure\\ECommerceAPI.SignalR\\ECommerceAPI.SignalR.csproj"
             }
           }
         }

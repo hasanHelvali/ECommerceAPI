@@ -23,7 +23,7 @@ namespace ECommerceAPI.Application.Features.Commands.AppUser.LoginUser
 
         public async Task<LoginUserCommandResponse> Handle(LoginUserCommandRequest request, CancellationToken cancellationToken)
         {
-            var token = await _authService.LoginAsync(request.UserNameOrEmail, request.Password,15);
+            var token = await _authService.LoginAsync(request.UserNameOrEmail, request.Password,900);
             return new LoginUserSuccessComandResponse()
             {
                 Token=token,

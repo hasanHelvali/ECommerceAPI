@@ -6,6 +6,7 @@ using ECommerceAPI.Infrastructure.Filters;
 using ECommerceAPI.Infrastructure.Services.Storage.Azure;
 using ECommerceAPI.Infrastructure.Services.Storage.Local;
 using ECommerceAPI.Persistance;
+using ECommerceAPI.SignalR;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -33,9 +34,14 @@ builder.Services.AddStorage<LocalStorage>();
 //builder.Services.AddStorage(ECommerceAPI.Infrastructure.Enums.StorageType.Azure);
 //builder.Services.AddStorage(ECommerceAPI.Infrastructure.Enums.StorageType.AWS);
 builder.Services.AddEndpointsApiExplorer();
+
+
+
+builder.Services.AddSignalRServices();
+
 builder.Services.AddCors(options =>
     options.AddDefaultPolicy(policy =>
-            policy.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader().AllowAnyMethod()));
+            policy.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials()));
 
 builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>())
     .AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<CreateProductValidator>())
@@ -127,6 +133,7 @@ app.Use(async (context, next) =>
 });
 
 app.MapControllers();
+app.MapHubs();
 app.Run();
 public class CustomUserNameColumn : ILogEventEnricher
 {
