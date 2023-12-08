@@ -1,6 +1,7 @@
 ﻿using ECommerceAPI.Application.Features.Commands.Product.CreateProduct;
 using ECommerceAPI.Application.Features.Commands.Product.RemoveProduct;
 using ECommerceAPI.Application.Features.Commands.Product.UpdateProduct;
+using ECommerceAPI.Application.Features.Commands.ProductImageFile.ChangeShowCaseImage;
 using ECommerceAPI.Application.Features.Commands.ProductImageFile.RemoveProductImage;
 using ECommerceAPI.Application.Features.Commands.ProductImageFile.UploadProductImage;
 using ECommerceAPI.Application.Features.Queries.Product.GetAllProduct;
@@ -15,23 +16,12 @@ namespace ECommerceAPI.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(AuthenticationSchemes ="Admin")]
-    /*Jwt de gelen istekleri jwt ile dogrulamak istiyorsak controller in veya onun altındaki actionların Authorize attribute u ile
-    isaretlenmis olması gerekir.
-    Isaretledik. Bu ne demek?
-    Diyoruz ki bu controller a ve bu controller in altındaki herhangi bir action a gelecek olan istekleri jwt ile kotnrol et. 
-    Yetkili ise basarılı kod dondur. Yetkili degil ise 401 gibi unAuthorize gibi kodlar dondur demis oldum. 
-    Lakin bu yetkiyi neye gore yapıyor? Tek basına bu attribute u kullanmak yeterli degildir. Bu attribute un hangi authorize mekanizmasını 
-    kullanacagını bildirmem lazım. Bunun icin de Program.cs de AuthenticationSchema sini Admin adi ile belirledigim authorization 
-    islemini uygula demis oldum. Bu authorize islemine gore bir dogrulama yapacak.
-    Eger default olarak bir schema tanımı yapsaydık bunu bildirmemize gerek kalmazdı. Sadece ilgili attribute u kullanmak yeterli olurdu.*/
+    //[Authorize(AuthenticationSchemes ="Admin")]
     public class ProductsController : ControllerBase
     {
-        //MediatR tasarım desenine yavas yavas geciyoruz.
         readonly IMediator _mediator;
         public ProductsController(IMediator mediator)
         {
-            //MediatR tasarım desenine yavas yavas geciyoruz.
             _mediator = mediator;
         }
 
@@ -43,6 +33,7 @@ namespace ECommerceAPI.API.Controllers
             return Ok(getAllProductQueryResponse);
         }
 
+
         [HttpGet("{ID}")]
         public async Task<IActionResult> Get([FromRoute] GetByIdProductQueryRequest getByIdProductQueryRequest)
         {
@@ -50,8 +41,9 @@ namespace ECommerceAPI.API.Controllers
             return Ok(getByIdProductQueryResponse);
         }
 
-        [HttpPost]
 
+        [HttpPost]
+        [Authorize(AuthenticationSchemes = "Admin")]
         public async Task<IActionResult> Post(CreateProductCommandRequest createProductCommandRequest)
         {
             CreateProductCommandResponse createProductCommandResponse = await _mediator.Send(createProductCommandRequest);
@@ -60,6 +52,7 @@ namespace ECommerceAPI.API.Controllers
 
 
         [HttpPut]
+        [Authorize(AuthenticationSchemes = "Admin")]
         public async Task<IActionResult> Put([FromBody] UpdateProductCommandRequest updateProductCommandRequest)
         {
             UpdateProductCommandResponse updateProductCommandResponse = await _mediator.Send(updateProductCommandRequest);
@@ -67,6 +60,7 @@ namespace ECommerceAPI.API.Controllers
         }
 
         [HttpDelete("{ID}")]
+        [Authorize(AuthenticationSchemes = "Admin")]
         public async Task<IActionResult> Delete([FromRoute] RemoveProductCommandRequest removeProductCommandRequest)
         {
             RemoveProductCommandResponse removeProductCommandResponse = await _mediator.Send(removeProductCommandRequest);
@@ -75,6 +69,7 @@ namespace ECommerceAPI.API.Controllers
 
 
         [HttpPost("[action]")]
+        [Authorize(AuthenticationSchemes = "Admin")]
         public async Task<IActionResult> Upload([FromQuery] UploadProductImageCommandRequest uploadProductImageCommandRequest)
         {
             uploadProductImageCommandRequest.Files = Request.Form.Files;
@@ -83,19 +78,30 @@ namespace ECommerceAPI.API.Controllers
         }
 
         [HttpGet("[action]/{id}")]
-        public async Task<IActionResult> GetProductImages([FromRoute] GetProductImageQueryRequest getProductImageQueryRequest )
+        [Authorize(AuthenticationSchemes = "Admin")]
+        public async Task<IActionResult> GetProductImages([FromRoute] GetProductImageQueryRequest getProductImageQueryRequest)
         {
             List<GetProductImageQueryResponse> getProductImageQueryResponse = await _mediator.Send(getProductImageQueryRequest);
             return Ok(getProductImageQueryResponse);
         }
 
         [HttpDelete("[action]/{ID}")]
-        public async Task<IActionResult> DeleteProductImage([FromRoute] RemoveProductImageCommandRequest removeProductImageCommandRequest, 
+        [Authorize(AuthenticationSchemes = "Admin")]
+        public async Task<IActionResult> DeleteProductImage([FromRoute] RemoveProductImageCommandRequest removeProductImageCommandRequest,
             [FromQuery] string imageId)
         {
             removeProductImageCommandRequest.ImageId = imageId;
             RemoveProductImageCommandResponse removeProductImageCommandResponse = await _mediator.Send(removeProductImageCommandRequest);
             return Ok();
+        }
+
+        [HttpGet("[action]")]
+        [Authorize(AuthenticationSchemes = "Admin")]
+        public async Task<IActionResult> ChangeShowCaseImage([FromQuery] ChangeShowCaseImageCommandRequest changeShowCaseImageCommandRequest)
+        {
+            ChangeShowCaseImageCommandResponse RESPONSE = await _mediator.Send(changeShowCaseImageCommandRequest);
+            return Ok(RESPONSE);
+
         }
     }
 }
