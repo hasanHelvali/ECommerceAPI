@@ -11,20 +11,33 @@ using System.Threading.Tasks;
 
 namespace ECommerceAPI.Persistance.Contexts
 {
-    public class ECommerceAPI_DBContext:IdentityDbContext<AppUser,AppRole,string>
+    public class ECommerceAPI_DBContext : IdentityDbContext<AppUser, AppRole, string>
     {
 
-        public ECommerceAPI_DBContext(DbContextOptions option):base(option)
+        public ECommerceAPI_DBContext(DbContextOptions option) : base(option)
         {
 
         }
 
-        public DbSet<Product> Products{ get; set; }
-        public DbSet<Order> Orders{ get; set; }
-        public DbSet<Customer> Customers{ get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<Domain.Entities.File> Files { get; set; }
         public DbSet<ProductImageFile> ProductImageFiles { get; set; }
-        public DbSet<ECommerceAPI.Domain.Entities.InvoiceFile> invoiceFiles { get; set; }
+        public DbSet<ECommerceAPI.Domain.Entities.InvoiceFile> InvoiceFiles { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
+        public DbSet<BasketItem> BasketsItems { get; set; }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Order>()
+                .HasKey(o => o.ID);
+            builder.Entity<Basket>()
+                .HasOne(b => b.Order)
+                .WithOne(o => o.Basket)
+                .HasForeignKey<Order>(o => o.ID);
+            
+            base.OnModelCreating(builder);
+        }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
@@ -32,15 +45,15 @@ namespace ECommerceAPI.Persistance.Contexts
              Bunu burada araya girerek yaptıgım icin bu mekanizmaya interceptor diyoruz. */
 
             var datas = ChangeTracker.Entries<BaseEntity>(); //Ilgili degisikligi takip eden property dir.
-                                                            //Bundan sonra surece giren butun base entity ler yakalanırlar. Burada baseentity yi secmemin nedeni butun dataların ozunde bir baseentity olmasıdır.
+                                                             //Bundan sonra surece giren butun base entity ler yakalanırlar. Burada baseentity yi secmemin nedeni butun dataların ozunde bir baseentity olmasıdır.
 
             foreach (var data in datas)
             {
                 _ = data.State switch//_ kullanmamın nedeni burada bir atama yapmak istemememdir. Buna discard yapısı denir.
                 {
-                    EntityState.Added=>data.Entity.CreatedDate=DateTime.Now,//Eger gelen data eklemeyle gelmisse createdDate eklenir.
-                    EntityState.Modified=> data.Entity.UpdatedDate = DateTime.Now,////Eger gelen data guncellemeyle gelmisse updatedDate eklenir.
-                    _ =>DateTime.UtcNow 
+                    EntityState.Added => data.Entity.CreatedDate = DateTime.Now,//Eger gelen data eklemeyle gelmisse createdDate eklenir.
+                    EntityState.Modified => data.Entity.UpdatedDate = DateTime.Now,////Eger gelen data guncellemeyle gelmisse updatedDate eklenir.
+                    _ => DateTime.UtcNow
                 };
             }
             return await base.SaveChangesAsync(cancellationToken);//SaveChangesAsync fonksiyonunu tekrardan deverye sokuyorum.

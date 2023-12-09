@@ -7137,3 +7137,214 @@ VALUES (N'20231208134913_mig13', N'7.0.12');
 2023-12-08 19:30:15.288 +03:00 [INF] Application started. Press Ctrl+C to shut down.
 2023-12-08 19:30:15.290 +03:00 [INF] Hosting environment: Development
 2023-12-08 19:30:15.291 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\
+2023-12-09 16:00:09.107 +03:00 [WRN] The foreign key property 'Basket.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-12-09 16:00:09.185 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-09 16:00:18.339 +03:00 [WRN] The foreign key property 'Basket.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-12-09 16:00:18.413 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-09 16:00:18.593 +03:00 [WRN] The foreign key property 'Basket.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-12-09 16:00:18.597 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-09 16:00:30.628 +03:00 [WRN] The foreign key property 'Basket.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-12-09 16:00:30.711 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-09 16:00:30.904 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-09 16:00:30.924 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-09 16:00:30.926 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-09 16:00:30.927 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-09 16:00:30.940 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-09 16:00:30.958 +03:00 [INF] Applying migration '20231209130018_mig14'.
+2023-12-09 16:00:31.038 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Baskets] (
+    [ID] uniqueidentifier NOT NULL,
+    [UserId] uniqueidentifier NOT NULL,
+    [UserId1] nvarchar(450) NULL,
+    [CreatedDate] datetime2 NOT NULL,
+    [UpdatedDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_Baskets] PRIMARY KEY ([ID]),
+    CONSTRAINT [FK_Baskets_AspNetUsers_UserId1] FOREIGN KEY ([UserId1]) REFERENCES [AspNetUsers] ([Id])
+);
+2023-12-09 16:00:31.041 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [BasketsItems] (
+    [ID] uniqueidentifier NOT NULL,
+    [BasketId] uniqueidentifier NOT NULL,
+    [ProductId] uniqueidentifier NOT NULL,
+    [Quantity] int NOT NULL,
+    [CreatedDate] datetime2 NOT NULL,
+    [UpdatedDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_BasketsItems] PRIMARY KEY ([ID]),
+    CONSTRAINT [FK_BasketsItems_Baskets_BasketId] FOREIGN KEY ([BasketId]) REFERENCES [Baskets] ([ID]) ON DELETE CASCADE,
+    CONSTRAINT [FK_BasketsItems_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([ID]) ON DELETE CASCADE
+);
+2023-12-09 16:00:31.042 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Baskets_UserId1] ON [Baskets] ([UserId1]);
+2023-12-09 16:00:31.042 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_BasketsItems_BasketId] ON [BasketsItems] ([BasketId]);
+2023-12-09 16:00:31.043 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_BasketsItems_ProductId] ON [BasketsItems] ([ProductId]);
+2023-12-09 16:00:31.045 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231209130018_mig14', N'7.0.12');
+2023-12-09 16:01:14.958 +03:00 [WRN] The foreign key property 'Basket.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-12-09 16:01:15.039 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-09 16:01:15.226 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-09 16:01:15.249 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-09 16:01:15.252 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-09 16:01:15.252 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-09 16:01:15.266 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-09 16:01:15.283 +03:00 [INF] No migrations were applied. The database is already up to date.
+2023-12-09 16:02:37.388 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-09 16:02:37.596 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-09 16:02:45.207 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-09 16:02:45.411 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-09 16:02:45.431 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-09 16:02:45.434 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-09 16:02:45.435 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-09 16:02:45.447 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-09 16:02:45.466 +03:00 [INF] Applying migration '20231209130237_mig14'.
+2023-12-09 16:02:45.548 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Baskets] DROP CONSTRAINT [FK_Baskets_AspNetUsers_UserId1];
+2023-12-09 16:02:45.552 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP INDEX [IX_Baskets_UserId1] ON [Baskets];
+2023-12-09 16:02:45.571 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var0 sysname;
+SELECT @var0 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Baskets]') AND [c].[name] = N'UserId1');
+IF @var0 IS NOT NULL EXEC(N'ALTER TABLE [Baskets] DROP CONSTRAINT [' + @var0 + '];');
+ALTER TABLE [Baskets] DROP COLUMN [UserId1];
+2023-12-09 16:02:45.590 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var1 sysname;
+SELECT @var1 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Baskets]') AND [c].[name] = N'UserId');
+IF @var1 IS NOT NULL EXEC(N'ALTER TABLE [Baskets] DROP CONSTRAINT [' + @var1 + '];');
+ALTER TABLE [Baskets] ALTER COLUMN [UserId] nvarchar(450) NOT NULL;
+2023-12-09 16:02:45.591 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Baskets_UserId] ON [Baskets] ([UserId]);
+2023-12-09 16:02:45.593 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Baskets] ADD CONSTRAINT [FK_Baskets_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE;
+2023-12-09 16:02:45.594 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231209130237_mig14', N'7.0.12');
+2023-12-09 16:36:51.230 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-09 16:36:51.462 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-09 16:37:08.899 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-09 16:37:09.122 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-09 16:37:09.142 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-09 16:37:09.145 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-09 16:37:09.146 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-09 16:37:09.158 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-09 16:37:09.176 +03:00 [INF] Applying migration '20231209133651_mig15'.
+2023-12-09 16:37:09.250 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Orders] ADD [BasketId] uniqueidentifier NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000';
+2023-12-09 16:37:09.252 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Baskets] ADD [OrderId] uniqueidentifier NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000';
+2023-12-09 16:37:09.255 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Baskets_OrderId] ON [Baskets] ([OrderId]);
+2023-12-09 16:37:09.257 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Baskets] ADD CONSTRAINT [FK_Baskets_Orders_OrderId] FOREIGN KEY ([OrderId]) REFERENCES [Orders] ([ID]) ON DELETE CASCADE;
+2023-12-09 16:37:09.258 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231209133651_mig15', N'7.0.12');
+2023-12-09 16:40:22.294 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-09 16:40:22.504 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-09 16:40:32.180 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-09 16:40:32.383 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-09 16:40:32.404 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-09 16:40:32.406 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-09 16:40:32.407 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-09 16:40:32.419 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-09 16:40:32.439 +03:00 [INF] Applying migration '20231209134022_mig16'.
+2023-12-09 16:40:32.504 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Baskets] DROP CONSTRAINT [FK_Baskets_Orders_OrderId];
+2023-12-09 16:40:32.506 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP INDEX [IX_Baskets_OrderId] ON [Baskets];
+2023-12-09 16:40:32.526 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var0 sysname;
+SELECT @var0 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Baskets]') AND [c].[name] = N'OrderId');
+IF @var0 IS NOT NULL EXEC(N'ALTER TABLE [Baskets] DROP CONSTRAINT [' + @var0 + '];');
+ALTER TABLE [Baskets] DROP COLUMN [OrderId];
+2023-12-09 16:40:32.528 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Orders_BasketId] ON [Orders] ([BasketId]);
+2023-12-09 16:40:32.531 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Orders] ADD CONSTRAINT [FK_Orders_Baskets_BasketId] FOREIGN KEY ([BasketId]) REFERENCES [Baskets] ([ID]) ON DELETE CASCADE;
+2023-12-09 16:40:32.533 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231209134022_mig16', N'7.0.12');
+2023-12-09 16:42:23.074 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-09 16:42:23.278 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-09 16:42:33.219 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-09 16:42:33.463 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-09 16:42:33.487 +03:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-09 16:42:33.491 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-09 16:42:33.491 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-09 16:42:33.504 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-09 16:42:33.522 +03:00 [INF] Applying migration '20231209134223_mig17'.
+2023-12-09 16:42:33.582 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Orders] DROP CONSTRAINT [FK_Orders_Baskets_BasketId];
+2023-12-09 16:42:33.583 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP INDEX [IX_Orders_BasketId] ON [Orders];
+2023-12-09 16:42:33.603 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var0 sysname;
+SELECT @var0 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Orders]') AND [c].[name] = N'BasketId');
+IF @var0 IS NOT NULL EXEC(N'ALTER TABLE [Orders] DROP CONSTRAINT [' + @var0 + '];');
+ALTER TABLE [Orders] DROP COLUMN [BasketId];
+2023-12-09 16:42:33.606 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Orders] ADD CONSTRAINT [FK_Orders_Baskets_ID] FOREIGN KEY ([ID]) REFERENCES [Baskets] ([ID]) ON DELETE CASCADE;
+2023-12-09 16:42:33.607 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231209134223_mig17', N'7.0.12');
+2023-12-09 19:23:15.474 +03:00 [INF] User profile is available. Using 'C:\Users\Hasan_Helvali\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-09 19:23:15.903 +03:00 [INF] Now listening on: https://localhost:7113
+2023-12-09 19:23:15.904 +03:00 [INF] Now listening on: http://localhost:5113
+2023-12-09 19:23:15.910 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-09 19:23:15.912 +03:00 [INF] Hosting environment: Development
+2023-12-09 19:23:15.914 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\
