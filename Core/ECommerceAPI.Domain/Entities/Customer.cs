@@ -11,7 +11,6 @@ namespace ECommerceAPI.Domain.Entities
     {
         public string Name { get; set; }
 
-        //Bir customer in birden fazla order i olabilmektedir.
-        public ICollection<Order> Orders { get; set; }
+        //public ICollection<Order> Orders { get; set; }
     }
 }
