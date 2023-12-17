@@ -19,12 +19,12 @@ namespace ECommerceAPI.Infrastructure.Services
             _configuration = configuration;
         }
 
-        public async Task SendMessageAsync(string to, string subject, string body, bool isBodyHtml = true)
+        public async Task SendMailAsync(string to, string subject, string body, bool isBodyHtml = true)
         {
-            await SendMessageAsync(new[] { to }, subject, body, isBodyHtml);
+            await SendMailAsync(new[] { to }, subject, body, isBodyHtml);
         }
 
-        public async Task SendMessageAsync(string[] tos, string subject, string body, bool isBodyHtml = true)
+        public async Task SendMailAsync(string[] tos, string subject, string body, bool isBodyHtml = true)
         {
             MailMessage mail = new MailMessage();
             mail.IsBodyHtml = isBodyHtml;
@@ -43,6 +43,23 @@ namespace ECommerceAPI.Infrastructure.Services
 
             //Ilk overload da buradaki algoritmayı kullanıyor.
 
+        }
+
+        public async Task SendPasswordResetMailAsycn(string to,string userId,string resetToken)
+        {
+            StringBuilder mail = new StringBuilder();
+            mail.AppendLine("Merhaba <br> Eger yeni şifre talebinde bulunduysanız aşağıdaki linkten şifrenizi yenileyebilirsiniz. <br>" +
+                "<strong><a target=\"_blank\" href=\"");
+            mail.AppendLine(_configuration["AngularCLientUrl"]);
+            mail.AppendLine("/update-password/");
+            mail.AppendLine(userId);
+            mail.AppendLine("/");
+            mail.AppendLine(resetToken);
+            mail.AppendLine("\">Yeni Şifre Talebi İçin Tıklayınız...</a></strong><br><br><br><span style=\"font-size:12px;\" >Not:" +
+                "Eger ki bu talep tarafınızca yapımamış ise lütfen bu maili ciddiye almayınız.</span><br>Saygılarımızla..." +
+                "<br><br><br>HHS E-Ticaret");
+
+            await SendMailAsync(to, "Şifre Yenileme Talebi", mail.ToString());
         }
     }
 }

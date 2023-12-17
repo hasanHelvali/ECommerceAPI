@@ -8,6 +8,7 @@ using ECommerceAPI.Persistance.Contexts;
 using ECommerceAPI.Persistance.InvoiceFile;
 using ECommerceAPI.Persistance.Repositories;
 using ECommerceAPI.Persistance.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,7 +35,8 @@ namespace ECommerceAPI.Persistance
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
-            }).AddEntityFrameworkStores<ECommerceAPI_DBContext>();
+            }).AddEntityFrameworkStores<ECommerceAPI_DBContext>()
+            .AddDefaultTokenProviders();//bu son eklenen satır reset token islemleri icin eklendi. ResetToken i uretmemizi saglayan konfigurasyon budur.
             services.AddSingleton<ICustomerReadRepository, CustomerReadRepository>();
             services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();
             services.AddScoped<IOrderReadRepository, OrderReadRepository>();
