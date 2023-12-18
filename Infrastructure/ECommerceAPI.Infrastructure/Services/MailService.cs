@@ -19,6 +19,7 @@ namespace ECommerceAPI.Infrastructure.Services
             _configuration = configuration;
         }
 
+
         public async Task SendMailAsync(string to, string subject, string body, bool isBodyHtml = true)
         {
             await SendMailAsync(new[] { to }, subject, body, isBodyHtml);
@@ -60,6 +61,15 @@ namespace ECommerceAPI.Infrastructure.Services
                 "<br><br><br>HHS E-Ticaret");
 
             await SendMailAsync(to, "Şifre Yenileme Talebi", mail.ToString());
+        }
+
+
+        public async Task SendCompletedOrderMailAsycn(string to, string orderCode, DateTime orderDate, string userName)
+        {
+            string mail = $"Sayın {userName} Merhaba<br>" +
+                $"{orderDate} tarihinde vermis olduğunuz {orderCode} kodlu siparişiniz tamamlanmış olup kargo firmasına teslim edilmiştir." +
+                $"Hayırlı günlerde kullanın.<br>Bizi tercih ettiğiniz için teşekkür ederiz...";
+            await SendMailAsync(to, $"{orderCode} Numaralı Siparişiniz Tamamlandı.", mail, true);
         }
     }
 }
