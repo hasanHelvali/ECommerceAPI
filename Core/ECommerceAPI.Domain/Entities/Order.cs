@@ -14,6 +14,7 @@ namespace ECommerceAPI.Domain.Entities
         public string Address { get; set; }
         public Basket Basket { get; set; }
         public string OrderCode { get; set; }
-        //Her ordr olusturulurken bir kod uretilecek ve uretilen bu kod siparis sureclerinde kullanılacak.
+
+        public CompletedOrder CompletedOrder { get; set; }
     }
 }

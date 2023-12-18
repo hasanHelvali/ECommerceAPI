@@ -23,7 +23,7 @@ namespace ECommerceAPI.Persistance
 {
     public static class ServiceRegistration
     {
-        public static void AddPersistanceServices(this IServiceCollection services)
+        public static void AddPersistanceServices(this IServiceCollection services) 
         {
 
             services.AddDbContext<ECommerceAPI_DBContext>(options => options.UseSqlServer(Configuration.ConnectionString),
@@ -57,8 +57,10 @@ namespace ECommerceAPI.Persistance
             services.AddScoped<IExternalAuthentication, AuthService>();
             services.AddScoped<IInternalAuthentication, AuthService>();
             services.AddScoped<IBasketService, BasketService>();
-
             services.AddScoped<IOrderService, OrderService>();
+            
+            services.AddScoped<ICompletedOrderReadRepository, CompletedOrderReadRepository>();
+            services.AddScoped<ICompletedOrderWriteRepository,CompletedOrderWriteRepository>();
         }
     }
 }

@@ -1,18 +1,14 @@
 ﻿using ECommerceAPI.Application.Abstractions.Services;
+using ECommerceAPI.Application.Abstractions.Services.Authentications;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ECommerceAPI.Application.Features.Commands.AppUser.VerifyResfreshToken
 {
     public class VerifyRefreshTokenCommandHandler : IRequestHandler<VerifyRefreshTokenCommandRequest, VerifyRefreshTokenCommandResponse>
     {
-        readonly IAuthService _authService;
+        readonly IInternalAuthentication _authService;
 
-        public VerifyRefreshTokenCommandHandler(IAuthService authService)
+        public VerifyRefreshTokenCommandHandler(IInternalAuthentication authService)
         {
             _authService = authService;
         }
@@ -22,9 +18,8 @@ namespace ECommerceAPI.Application.Features.Commands.AppUser.VerifyResfreshToken
             bool state = await _authService.VerifyResetTokenAsync(request.ResetToken, request.UserId);
             return new()
             {
-                State=state
+                State = state
             };
-
         }
     }
-}
+    }

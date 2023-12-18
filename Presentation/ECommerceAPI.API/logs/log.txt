@@ -23941,3 +23941,45 @@ Sec-WebSocket-Accept: [Redacted]
 2023-12-16 11:02:15.998 +03:00 [INF] Application started. Press Ctrl+C to shut down.
 2023-12-16 11:02:16.000 +03:00 [INF] Hosting environment: Development
 2023-12-16 11:02:16.001 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\
+2023-12-18 14:33:05.118 +03:00 [INF] User profile is available. Using 'C:\Users\Hasan_Helvali\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-18 14:33:05.537 +03:00 [INF] Now listening on: https://localhost:7113
+2023-12-18 14:33:05.538 +03:00 [INF] Now listening on: http://localhost:5113
+2023-12-18 14:33:05.543 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-18 14:33:05.545 +03:00 [INF] Hosting environment: Development
+2023-12-18 14:33:05.546 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\
+2023-12-18 14:33:52.137 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-18 14:33:52.383 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-18 14:34:01.553 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-18 14:34:01.776 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-18 14:34:01.800 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-18 14:34:01.803 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-18 14:34:01.804 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-18 14:34:01.819 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-18 14:34:01.838 +03:00 [INF] Applying migration '20231218113352_mig25'.
+2023-12-18 14:34:01.930 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [CompletedOrders] (
+    [ID] uniqueidentifier NOT NULL,
+    [OrderId] uniqueidentifier NOT NULL,
+    [CreatedDate] datetime2 NOT NULL,
+    [UpdatedDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_CompletedOrders] PRIMARY KEY ([ID]),
+    CONSTRAINT [FK_CompletedOrders_Orders_OrderId] FOREIGN KEY ([OrderId]) REFERENCES [Orders] ([ID]) ON DELETE CASCADE
+);
+2023-12-18 14:34:01.934 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_CompletedOrders_OrderId] ON [CompletedOrders] ([OrderId]);
+2023-12-18 14:34:01.940 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231218113352_mig25', N'7.0.12');
+2023-12-18 19:30:24.242 +03:00 [INF] User profile is available. Using 'C:\Users\Hasan_Helvali\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-18 19:30:24.748 +03:00 [INF] Now listening on: https://localhost:7113
+2023-12-18 19:30:24.750 +03:00 [INF] Now listening on: http://localhost:5113
+2023-12-18 19:30:24.754 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-18 19:30:24.756 +03:00 [INF] Hosting environment: Development
+2023-12-18 19:30:24.757 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\

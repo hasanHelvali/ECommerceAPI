@@ -1,4 +1,5 @@
 ﻿using ECommerceAPI.Application.Abstractions.Services;
+using ECommerceAPI.Application.Abstractions.Services.Authentications;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,9 @@ namespace ECommerceAPI.Application.Features.Commands.AppUser.PasswordReset
 {
     public class PasswordResetCommandHandler : IRequestHandler<PasswordResetCommandRequest, PasswordResetCommandResponse>
     {
-        readonly IAuthService _authService;
+        readonly IInternalAuthentication _authService;
 
-        public PasswordResetCommandHandler(IAuthService authService)
+        public PasswordResetCommandHandler(IInternalAuthentication authService)
         {
             _authService = authService;
         }
