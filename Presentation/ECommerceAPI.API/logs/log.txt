@@ -23989,3 +23989,9 @@ VALUES (N'20231218113352_mig25', N'7.0.12');
 2023-12-18 21:02:15.727 +03:00 [INF] Application started. Press Ctrl+C to shut down.
 2023-12-18 21:02:15.729 +03:00 [INF] Hosting environment: Development
 2023-12-18 21:02:15.730 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\
+2023-12-20 20:17:42.617 +03:00 [INF] User profile is available. Using 'C:\Users\Hasan_Helvali\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-20 20:17:43.019 +03:00 [INF] Now listening on: https://localhost:7113
+2023-12-20 20:17:43.020 +03:00 [INF] Now listening on: http://localhost:5113
+2023-12-20 20:17:43.024 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-20 20:17:43.025 +03:00 [INF] Hosting environment: Development
+2023-12-20 20:17:43.026 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\
