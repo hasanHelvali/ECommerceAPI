@@ -36,7 +36,7 @@ namespace ECommerceAPI.Persistance
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
             }).AddEntityFrameworkStores<ECommerceAPI_DBContext>()
-            .AddDefaultTokenProviders();//bu son eklenen satır reset token islemleri icin eklendi. ResetToken i uretmemizi saglayan konfigurasyon budur.
+            .AddDefaultTokenProviders();
             services.AddSingleton<ICustomerReadRepository, CustomerReadRepository>();
             services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();
             services.AddScoped<IOrderReadRepository, OrderReadRepository>();
@@ -58,9 +58,11 @@ namespace ECommerceAPI.Persistance
             services.AddScoped<IInternalAuthentication, AuthService>();
             services.AddScoped<IBasketService, BasketService>();
             services.AddScoped<IOrderService, OrderService>();
-            
             services.AddScoped<ICompletedOrderReadRepository, CompletedOrderReadRepository>();
             services.AddScoped<ICompletedOrderWriteRepository,CompletedOrderWriteRepository>();
+
+            services.AddScoped<IRoleService, RoleService>();
+
         }
     }
 }

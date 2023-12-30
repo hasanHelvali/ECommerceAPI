@@ -23995,3 +23995,46 @@ VALUES (N'20231218113352_mig25', N'7.0.12');
 2023-12-20 20:17:43.024 +03:00 [INF] Application started. Press Ctrl+C to shut down.
 2023-12-20 20:17:43.025 +03:00 [INF] Hosting environment: Development
 2023-12-20 20:17:43.026 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\
+2023-12-30 19:41:04.821 +03:00 [INF] User profile is available. Using 'C:\Users\Hasan_Helvali\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-30 19:41:05.237 +03:00 [INF] Now listening on: https://localhost:7113
+2023-12-30 19:41:05.238 +03:00 [INF] Now listening on: http://localhost:5113
+2023-12-30 19:41:05.242 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-30 19:41:05.243 +03:00 [INF] Hosting environment: Development
+2023-12-30 19:41:05.244 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\
+2023-12-30 19:54:31.372 +03:00 [INF] User profile is available. Using 'C:\Users\Hasan_Helvali\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-30 19:54:31.650 +03:00 [INF] Now listening on: https://localhost:7113
+2023-12-30 19:54:31.652 +03:00 [INF] Now listening on: http://localhost:5113
+2023-12-30 19:54:31.656 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-30 19:54:31.657 +03:00 [INF] Hosting environment: Development
+2023-12-30 19:54:31.658 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\
+2023-12-30 19:57:12.318 +03:00 [INF] User profile is available. Using 'C:\Users\Hasan_Helvali\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-30 19:57:12.736 +03:00 [INF] Now listening on: https://localhost:7113
+2023-12-30 19:57:12.737 +03:00 [INF] Now listening on: http://localhost:5113
+2023-12-30 19:57:12.741 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-30 19:57:12.742 +03:00 [INF] Hosting environment: Development
+2023-12-30 19:57:12.743 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\
+2023-12-30 20:00:31.084 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-30 20:00:31.286 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-30 20:00:42.429 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-30 20:00:42.650 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-30 20:00:42.671 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-30 20:00:42.674 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-30 20:00:42.674 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-30 20:00:42.692 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-30 20:00:42.710 +03:00 [INF] Applying migration '20231230170031_mig_26'.
+2023-12-30 20:00:42.764 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231230170031_mig_26', N'7.0.12');
+2023-12-30 21:21:17.737 +03:00 [INF] User profile is available. Using 'C:\Users\Hasan_Helvali\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-30 21:21:18.134 +03:00 [INF] Now listening on: https://localhost:7113
+2023-12-30 21:21:18.136 +03:00 [INF] Now listening on: http://localhost:5113
+2023-12-30 21:21:18.140 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-30 21:21:18.142 +03:00 [INF] Hosting environment: Development
+2023-12-30 21:21:18.143 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\
