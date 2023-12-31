@@ -23,7 +23,7 @@ namespace ECommerceAPI.API.Controllers
         [AuthorizeDefinition(ActionType =ActionType.Reading,Definition ="Get Authorize Definition Endpoints",Menu ="Applicaiton Services")]
         public IActionResult GetAuthorizeDefinitionEndPoints()
         {
-            var datas = _applicationService.GetAuthorizeDefinitionEndpoint(typeof(Program));//Program.cs i type olarak gonderdim.
+            var datas = _applicationService.GetAuthorizeDefinitionEndpoints(typeof(Program));//Program.cs i type olarak gonderdim.
             return Ok(datas);
         }
     }

@@ -9,6 +9,6 @@ namespace ECommerceAPI.Application.Abstractions.Services.Configurations
 {
     public interface IApplicationService
     {
-        List<Menu> GetAuthorizeDefinitionEndpoint(Type type);
+        List<Menu> GetAuthorizeDefinitionEndpoints(Type type);
     }
 }

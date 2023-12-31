@@ -22,6 +22,21 @@ namespace ECommerceAPI.Persistance.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("AppRoleEndpoint", b =>
+                {
+                    b.Property<Guid>("EndpointsID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("RolesId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("EndpointsID", "RolesId");
+
+                    b.HasIndex("RolesId");
+
+                    b.ToTable("AppRoleEndpoint");
+                });
+
             modelBuilder.Entity("ECommerceAPI.Domain.Entities.Basket", b =>
                 {
                     b.Property<Guid>("ID")
@@ -117,6 +132,44 @@ namespace ECommerceAPI.Persistance.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Customers");
+                });
+
+            modelBuilder.Entity("ECommerceAPI.Domain.Entities.Endpoint", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ActionType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Definition")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HttpType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("MenuID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("MenuID");
+
+                    b.ToTable("Endpoints");
                 });
 
             modelBuilder.Entity("ECommerceAPI.Domain.Entities.File", b =>
@@ -253,6 +306,27 @@ namespace ECommerceAPI.Persistance.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("ECommerceAPI.Domain.Entities.Menu", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Menus");
                 });
 
             modelBuilder.Entity("ECommerceAPI.Domain.Entities.Order", b =>
@@ -454,6 +528,21 @@ namespace ECommerceAPI.Persistance.Migrations
                     b.HasDiscriminator().HasValue("ProductImageFile");
                 });
 
+            modelBuilder.Entity("AppRoleEndpoint", b =>
+                {
+                    b.HasOne("ECommerceAPI.Domain.Entities.Endpoint", null)
+                        .WithMany()
+                        .HasForeignKey("EndpointsID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ECommerceAPI.Domain.Entities.Identity.AppRole", null)
+                        .WithMany()
+                        .HasForeignKey("RolesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("ECommerceAPI.Domain.Entities.Basket", b =>
                 {
                     b.HasOne("ECommerceAPI.Domain.Entities.Identity.AppUser", "User")
@@ -493,6 +582,17 @@ namespace ECommerceAPI.Persistance.Migrations
                         .IsRequired();
 
                     b.Navigation("Order");
+                });
+
+            modelBuilder.Entity("ECommerceAPI.Domain.Entities.Endpoint", b =>
+                {
+                    b.HasOne("ECommerceAPI.Domain.Entities.Menu", "Menu")
+                        .WithMany("Endpoints")
+                        .HasForeignKey("MenuID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Menu");
                 });
 
             modelBuilder.Entity("ECommerceAPI.Domain.Entities.Order", b =>
@@ -583,6 +683,11 @@ namespace ECommerceAPI.Persistance.Migrations
             modelBuilder.Entity("ECommerceAPI.Domain.Entities.Identity.AppUser", b =>
                 {
                     b.Navigation("Baskets");
+                });
+
+            modelBuilder.Entity("ECommerceAPI.Domain.Entities.Menu", b =>
+                {
+                    b.Navigation("Endpoints");
                 });
 
             modelBuilder.Entity("ECommerceAPI.Domain.Entities.Order", b =>

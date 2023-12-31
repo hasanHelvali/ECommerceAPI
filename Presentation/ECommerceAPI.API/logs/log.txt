@@ -24038,3 +24038,61 @@ VALUES (N'20231230170031_mig_26', N'7.0.12');
 2023-12-30 21:21:18.140 +03:00 [INF] Application started. Press Ctrl+C to shut down.
 2023-12-30 21:21:18.142 +03:00 [INF] Hosting environment: Development
 2023-12-30 21:21:18.143 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\
+2023-12-31 02:21:19.370 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-31 02:21:19.587 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-31 02:21:42.663 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'InvoiceFile'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2023-12-31 02:21:42.884 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-31 02:21:42.906 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-31 02:21:42.908 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-31 02:21:42.909 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-31 02:21:42.923 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-31 02:21:42.940 +03:00 [INF] Applying migration '20231230232119_mig27'.
+2023-12-31 02:21:43.031 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Menus] (
+    [ID] uniqueidentifier NOT NULL,
+    [Name] nvarchar(max) NOT NULL,
+    [CreatedDate] datetime2 NOT NULL,
+    [UpdatedDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_Menus] PRIMARY KEY ([ID])
+);
+2023-12-31 02:21:43.033 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Endpoints] (
+    [ID] uniqueidentifier NOT NULL,
+    [ActionType] nvarchar(max) NOT NULL,
+    [HttpType] nvarchar(max) NOT NULL,
+    [Definition] nvarchar(max) NOT NULL,
+    [Code] nvarchar(max) NOT NULL,
+    [MenuID] uniqueidentifier NOT NULL,
+    [CreatedDate] datetime2 NOT NULL,
+    [UpdatedDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_Endpoints] PRIMARY KEY ([ID]),
+    CONSTRAINT [FK_Endpoints_Menus_MenuID] FOREIGN KEY ([MenuID]) REFERENCES [Menus] ([ID]) ON DELETE CASCADE
+);
+2023-12-31 02:21:43.038 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AppRoleEndpoint] (
+    [EndpointsID] uniqueidentifier NOT NULL,
+    [RolesId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AppRoleEndpoint] PRIMARY KEY ([EndpointsID], [RolesId]),
+    CONSTRAINT [FK_AppRoleEndpoint_AspNetRoles_RolesId] FOREIGN KEY ([RolesId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AppRoleEndpoint_Endpoints_EndpointsID] FOREIGN KEY ([EndpointsID]) REFERENCES [Endpoints] ([ID]) ON DELETE CASCADE
+);
+2023-12-31 02:21:43.041 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AppRoleEndpoint_RolesId] ON [AppRoleEndpoint] ([RolesId]);
+2023-12-31 02:21:43.043 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Endpoints_MenuID] ON [Endpoints] ([MenuID]);
+2023-12-31 02:21:43.045 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231230232119_mig27', N'7.0.12');
+2023-12-31 03:31:22.281 +03:00 [INF] User profile is available. Using 'C:\Users\Hasan_Helvali\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-31 03:31:22.707 +03:00 [INF] Now listening on: https://localhost:7113
+2023-12-31 03:31:22.709 +03:00 [INF] Now listening on: http://localhost:5113
+2023-12-31 03:31:22.714 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-31 03:31:22.716 +03:00 [INF] Hosting environment: Development
+2023-12-31 03:31:22.717 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\

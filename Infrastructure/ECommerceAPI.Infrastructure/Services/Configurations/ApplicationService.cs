@@ -17,22 +17,17 @@ namespace ECommerceAPI.Infrastructure.Services.Configurations
 {
     public class ApplicationService : IApplicationService
     {
-        public List<Menu> GetAuthorizeDefinitionEndpoint(Type type)
+        public List<Menu> GetAuthorizeDefinitionEndpoints(Type type)
         {
-            //Assembly assembly = Assembly.GetExecutingAssembly();// O an calisan Assembly yi elde ediyorum.
-            Assembly assembly = Assembly.GetAssembly(type);// Hangi type verildiyse o type ın bulundugu assembly elde edilmis olur.
-            var controllers = assembly.GetTypes()//ne kadar tur varsa alayını elde ediyorum.
-                .Where(t => t.IsAssignableTo(typeof(ControllerBase)));//ControllerBase referansından elde edilen ne kadar yapı varsa getir demis oldum.
-            //Yani aslında butun controller ları elde etmis oldum.
-            /*Bunun kullanıldıgı yapı api katmanı olacak. O katmandan program.cs tipini gondererek bu katmandan, yani farklı bri katmandan, o katman 
-             ile ilgili buutn assembly leri elde etmis oluyorum.*/
-
+            Assembly assembly = Assembly.GetAssembly(type);
+            var controllers = assembly.GetTypes()
+                .Where(t => t.IsAssignableTo(typeof(ControllerBase)));
             List<Menu> menus = new();
             if (controllers != null)
                 foreach (var controller in controllers)
-                {//Butun controller lar uzerinde geziyorum.
-                    var actions = controller.GetMethods()//Controller lardaki metotlar uzerinde geziyorum.
-                        .Where(m => m.IsDefined(typeof(AuthorizeDefinitionAttribute)));//Buradaki attribute ile isaretlenmis olan butun metotları elde etmis oldum.
+                {
+                    var actions = controller.GetMethods()
+                        .Where(m => m.IsDefined(typeof(AuthorizeDefinitionAttribute)));
                     if (actions != null)
                         foreach (var action in actions)
                         {
@@ -52,7 +47,7 @@ namespace ECommerceAPI.Infrastructure.Services.Configurations
 
                                 Application.DTOs.Configurations.Action _action = new()
                                 {
-                                    ActionType = Enum.GetName(typeof(ActionType), authorizeDefinitionAttribute.ActionType),//enum ın string degerini elde etmis olduk.
+                                    ActionType = Enum.GetName(typeof(ActionType), authorizeDefinitionAttribute.ActionType),
                                     Definition = authorizeDefinitionAttribute.Definition,
                                 };
                                 var httpAttribute = attributes.FirstOrDefault(a => a.GetType().IsAssignableTo(typeof(HttpMethodAttribute))) as HttpMethodAttribute;
@@ -61,8 +56,7 @@ namespace ECommerceAPI.Infrastructure.Services.Configurations
                                 else
                                     _action.HttpType = HttpMethods.Get;
 
-                                _action.Code = $"{_action.HttpType}.{_action.ActionType}.{_action.Definition.Replace(" ","")}";
-                                //her action icin ayırd edici bir kod uretmeye calıstık. Bu kod uretimini ise _action nesnesinin yine kendi prop larından elde ettik.
+                                _action.Code = $"{_action.HttpType}.{_action.ActionType}.{_action.Definition.Replace(" ", "")}";
                                 menu.Actions.Add(_action);
                             }
                         }
@@ -72,4 +66,3 @@ namespace ECommerceAPI.Infrastructure.Services.Configurations
         }
     }
 }
-//Tum bu kodlar sonucunda authorize gerektiren butun action ları elde etmis oluyoruz.

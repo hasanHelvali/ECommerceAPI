@@ -1,6 +1,7 @@
 ﻿using ECommerceAPI.Domain.Entities;
 using ECommerceAPI.Domain.Entities.Common;
 using ECommerceAPI.Domain.Entities.Identity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -28,6 +29,9 @@ namespace ECommerceAPI.Persistance.Contexts
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<BasketItem> BasketsItems { get; set; }
         public DbSet<CompletedOrder> CompletedOrders { get; set; }
+
+        public DbSet<Menu> Menus { get; set; }
+        public DbSet<Domain.Entities.Endpoint> Endpoints { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Order>()
@@ -51,26 +55,20 @@ namespace ECommerceAPI.Persistance.Contexts
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            /*SaveChanges tetiklendiginde ilgili datalar uzerinde bazı degisiklikler yapabilirim.
-             Bunu burada araya girerek yaptıgım icin bu mekanizmaya interceptor diyoruz. */
 
-            var datas = ChangeTracker.Entries<BaseEntity>(); //Ilgili degisikligi takip eden property dir.
-                                                             //Bundan sonra surece giren butun base entity ler yakalanırlar. Burada baseentity yi secmemin nedeni butun dataların ozunde bir baseentity olmasıdır.
+            var datas = ChangeTracker.Entries<BaseEntity>();
 
             foreach (var data in datas)
             {
-                _ = data.State switch//_ kullanmamın nedeni burada bir atama yapmak istemememdir. Buna discard yapısı denir.
+                _ = data.State switch
                 {
-                    EntityState.Added => data.Entity.CreatedDate = DateTime.Now,//Eger gelen data eklemeyle gelmisse createdDate eklenir.
-                    EntityState.Modified => data.Entity.UpdatedDate = DateTime.Now,////Eger gelen data guncellemeyle gelmisse updatedDate eklenir.
+                    EntityState.Added => data.Entity.CreatedDate = DateTime.Now,
+                    EntityState.Modified => data.Entity.UpdatedDate = DateTime.Now,
                     _ => DateTime.UtcNow
                 };
             }
-            return await base.SaveChangesAsync(cancellationToken);//SaveChangesAsync fonksiyonunu tekrardan deverye sokuyorum.
+            return await base.SaveChangesAsync(cancellationToken);
 
-            /*Bir veriyi eklerken veya bir veriyi guncellerken ne zaman saveChangesAsync i tetiklersek once buradaki override tetiklenecek.
-             Ilgılı yakalama ve manipulasyon islemleri yurutulecek.
-            Sonra savechanges tektardan return de cagrılıp, son degisiklige gore tekrardan calıstırılacak.*/
         }
     }
 }
