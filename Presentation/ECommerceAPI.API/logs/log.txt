@@ -24120,3 +24120,652 @@ VALUES (N'20231230232119_mig27', N'7.0.12');
 2023-12-31 20:18:33.890 +03:00 [INF] Application started. Press Ctrl+C to shut down.
 2023-12-31 20:18:33.892 +03:00 [INF] Hosting environment: Development
 2023-12-31 20:18:33.894 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\
+2024-01-01 18:39:07.859 +03:00 [INF] User profile is available. Using 'C:\Users\Hasan_Helvali\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-01 18:39:08.161 +03:00 [INF] Now listening on: http://localhost:7113
+2024-01-01 18:39:08.163 +03:00 [INF] Now listening on: http://localhost:5113
+2024-01-01 18:39:08.168 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-01 18:39:08.170 +03:00 [INF] Hosting environment: Development
+2024-01-01 18:39:08.170 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\
+2024-01-01 18:39:38.646 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/ - -
+2024-01-01 18:39:38.917 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3
+Cookie: [Redacted]
+Upgrade-Insecure-Requests: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-User: [Redacted]
+2024-01-01 18:39:38.925 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-01-01 18:39:38.946 +03:00 [INF] Response:
+StatusCode: 404
+2024-01-01 18:39:38.956 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/ - - - 404 0 - 315.3787ms
+2024-01-01 18:39:39.062 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/favicon.ico - -
+2024-01-01 18:39:39.068 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /favicon.ico
+Accept: image/avif,image/webp,*/*
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3
+Cookie: [Redacted]
+Referer: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-Site: [Redacted]
+2024-01-01 18:39:39.071 +03:00 [INF] Response:
+StatusCode: 404
+2024-01-01 18:39:39.078 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/favicon.ico - - - 404 0 - 16.6455ms
+2024-01-01 18:40:16.165 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/users - -
+2024-01-01 18:40:16.172 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /users
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3
+Cookie: [Redacted]
+Upgrade-Insecure-Requests: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-User: [Redacted]
+2024-01-01 18:40:16.175 +03:00 [INF] Response:
+StatusCode: 404
+2024-01-01 18:40:16.176 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/users - - - 404 0 - 10.8145ms
+2024-01-01 18:40:44.100 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/users/GetAllUsers - -
+2024-01-01 18:40:44.106 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /users/GetAllUsers
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3
+Cookie: [Redacted]
+Upgrade-Insecure-Requests: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-User: [Redacted]
+2024-01-01 18:40:44.107 +03:00 [INF] Response:
+StatusCode: 404
+2024-01-01 18:40:44.108 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/users/GetAllUsers - - - 404 0 - 8.6468ms
+2024-01-01 18:41:01.551 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/swagger - -
+2024-01-01 18:41:01.558 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /swagger
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3
+Cookie: [Redacted]
+Upgrade-Insecure-Requests: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-User: [Redacted]
+2024-01-01 18:41:01.560 +03:00 [INF] Response:
+StatusCode: 404
+2024-01-01 18:41:01.561 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/swagger - - - 404 0 - 9.3785ms
+2024-01-01 18:41:22.641 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/swagger - -
+2024-01-01 18:41:22.644 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /swagger
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3
+Cookie: [Redacted]
+Upgrade-Insecure-Requests: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-User: [Redacted]
+2024-01-01 18:41:22.645 +03:00 [INF] Response:
+StatusCode: 404
+2024-01-01 18:41:22.646 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/swagger - - - 404 0 - 4.5794ms
+2024-01-01 18:41:42.186 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/ - -
+2024-01-01 18:41:42.209 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr,en;q=0.9,en-GB;q=0.8,en-US;q=0.7
+Cookie: [Redacted]
+Upgrade-Insecure-Requests: [Redacted]
+sec-ch-ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-User: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+2024-01-01 18:41:42.213 +03:00 [INF] Response:
+StatusCode: 404
+2024-01-01 18:41:42.218 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/ - - - 404 0 - 31.4076ms
+2024-01-01 18:42:20.266 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/ - -
+2024-01-01 18:42:20.271 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr,en;q=0.9,en-GB;q=0.8,en-US;q=0.7
+Cache-Control: max-age=0
+Cookie: [Redacted]
+Upgrade-Insecure-Requests: [Redacted]
+sec-ch-ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-User: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+2024-01-01 18:42:20.273 +03:00 [INF] Response:
+StatusCode: 404
+2024-01-01 18:42:20.274 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/ - - - 404 0 - 8.0508ms
+2024-01-01 18:42:24.256 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/api - -
+2024-01-01 18:42:24.259 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /api
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr,en;q=0.9,en-GB;q=0.8,en-US;q=0.7
+Cookie: [Redacted]
+Upgrade-Insecure-Requests: [Redacted]
+sec-ch-ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-User: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+2024-01-01 18:42:24.261 +03:00 [INF] Response:
+StatusCode: 404
+2024-01-01 18:42:24.262 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/api - - - 404 0 - 6.1280ms
+2024-01-01 18:42:31.105 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/api/s - -
+2024-01-01 18:42:31.109 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /api/s
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr,en;q=0.9,en-GB;q=0.8,en-US;q=0.7
+Cookie: [Redacted]
+Upgrade-Insecure-Requests: [Redacted]
+sec-ch-ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-User: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+2024-01-01 18:42:31.111 +03:00 [INF] Response:
+StatusCode: 404
+2024-01-01 18:42:31.112 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/api/s - - - 404 0 - 7.5027ms
+2024-01-01 18:42:57.391 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/api/users - -
+2024-01-01 18:42:57.422 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /api/users
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr,en;q=0.9,en-GB;q=0.8,en-US;q=0.7
+Cookie: [Redacted]
+Upgrade-Insecure-Requests: [Redacted]
+sec-ch-ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-User: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+2024-01-01 18:42:57.594 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-01-01 18:42:57.602 +03:00 [INF] AuthenticationScheme: Admin was challenged.
+2024-01-01 18:42:57.606 +03:00 [INF] Response:
+StatusCode: 401
+WWW-Authenticate: [Redacted]
+2024-01-01 18:42:57.608 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/api/users - - - 401 0 - 216.6074ms
+2024-01-01 18:43:15.719 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/api/users - -
+2024-01-01 18:43:15.726 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /api/users
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr,en;q=0.9,en-GB;q=0.8,en-US;q=0.7
+Cache-Control: max-age=0
+Cookie: [Redacted]
+Upgrade-Insecure-Requests: [Redacted]
+sec-ch-ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-User: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+2024-01-01 18:43:15.729 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-01-01 18:43:15.730 +03:00 [INF] AuthenticationScheme: Admin was challenged.
+2024-01-01 18:43:15.733 +03:00 [INF] Response:
+StatusCode: 401
+WWW-Authenticate: [Redacted]
+2024-01-01 18:43:15.734 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/api/users - - - 401 0 - 15.1952ms
+2024-01-01 18:43:20.593 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/api/users - -
+2024-01-01 18:43:20.596 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /api/users
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr,en;q=0.9,en-GB;q=0.8,en-US;q=0.7
+Cache-Control: max-age=0
+Cookie: [Redacted]
+Upgrade-Insecure-Requests: [Redacted]
+sec-ch-ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-User: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+2024-01-01 18:43:20.599 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-01-01 18:43:20.600 +03:00 [INF] AuthenticationScheme: Admin was challenged.
+2024-01-01 18:43:20.601 +03:00 [INF] Response:
+StatusCode: 401
+WWW-Authenticate: [Redacted]
+2024-01-01 18:43:20.602 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/api/users - - - 401 0 - 9.3292ms
+2024-01-01 18:43:44.372 +03:00 [INF] User profile is available. Using 'C:\Users\Hasan_Helvali\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-01 18:43:44.621 +03:00 [INF] Now listening on: http://localhost:7113
+2024-01-01 18:43:44.629 +03:00 [INF] Now listening on: http://localhost:5113
+2024-01-01 18:43:44.633 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-01 18:43:44.635 +03:00 [INF] Hosting environment: Development
+2024-01-01 18:43:44.636 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\
+2024-01-01 18:44:01.106 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/swagger - -
+2024-01-01 18:44:01.294 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /swagger
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3
+Cookie: [Redacted]
+Upgrade-Insecure-Requests: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-User: [Redacted]
+2024-01-01 18:44:01.301 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-01-01 18:44:01.323 +03:00 [INF] Response:
+StatusCode: 404
+2024-01-01 18:44:01.342 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/swagger - - - 404 0 - 239.9820ms
+2024-01-01 18:44:08.104 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/api/swagger - -
+2024-01-01 18:44:08.112 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /api/swagger
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3
+Cookie: [Redacted]
+Upgrade-Insecure-Requests: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-User: [Redacted]
+2024-01-01 18:44:08.114 +03:00 [INF] Response:
+StatusCode: 404
+2024-01-01 18:44:08.115 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/api/swagger - - - 404 0 - 11.1460ms
+2024-01-01 18:44:16.124 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/api/swaggerui - -
+2024-01-01 18:44:16.131 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /api/swaggerui
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3
+Cookie: [Redacted]
+Upgrade-Insecure-Requests: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-User: [Redacted]
+2024-01-01 18:44:16.134 +03:00 [INF] Response:
+StatusCode: 404
+2024-01-01 18:44:16.136 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/api/swaggerui - - - 404 0 - 11.2511ms
+2024-01-01 18:44:44.694 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/api/users - -
+2024-01-01 18:44:44.701 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /api/users
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr,en;q=0.9,en-GB;q=0.8,en-US;q=0.7
+Cookie: [Redacted]
+Upgrade-Insecure-Requests: [Redacted]
+sec-ch-ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-User: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+2024-01-01 18:44:44.797 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-01-01 18:44:44.811 +03:00 [INF] AuthenticationScheme: Admin was challenged.
+2024-01-01 18:44:44.812 +03:00 [INF] Response:
+StatusCode: 401
+WWW-Authenticate: [Redacted]
+2024-01-01 18:44:44.813 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/api/users - - - 401 0 - 118.6275ms
+2024-01-01 18:45:08.518 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/api/users - -
+2024-01-01 18:45:08.521 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /api/users
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7
+Upgrade-Insecure-Requests: [Redacted]
+sec-ch-ua: "Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-User: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+2024-01-01 18:45:08.524 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-01-01 18:45:08.527 +03:00 [INF] AuthenticationScheme: Admin was challenged.
+2024-01-01 18:45:08.528 +03:00 [INF] Response:
+StatusCode: 401
+WWW-Authenticate: [Redacted]
+2024-01-01 18:45:08.530 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/api/users - - - 401 0 - 12.1956ms
+2024-01-01 18:45:47.349 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/api/auth - -
+2024-01-01 18:45:47.362 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /api/auth
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7
+Upgrade-Insecure-Requests: [Redacted]
+sec-ch-ua: "Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-User: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+2024-01-01 18:45:47.364 +03:00 [INF] Response:
+StatusCode: 404
+2024-01-01 18:45:47.365 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/api/auth - - - 404 0 - 16.2905ms
+2024-01-01 18:46:10.164 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/api/auth - -
+2024-01-01 18:46:10.191 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /api/auth
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: [Redacted]
+sec-ch-ua: "Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-User: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+2024-01-01 18:46:10.193 +03:00 [INF] Response:
+StatusCode: 404
+2024-01-01 18:46:10.194 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/api/auth - - - 404 0 - 30.1980ms
+2024-01-01 18:46:26.280 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7113/api/auth/login - -
+2024-01-01 18:46:26.288 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /api/auth/login
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Connection: keep-alive
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7
+Upgrade-Insecure-Requests: [Redacted]
+sec-ch-ua: "Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-User: [Redacted]
+Sec-Fetch-Dest: [Redacted]
+2024-01-01 18:46:26.296 +03:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2024-01-01 18:46:26.298 +03:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2024-01-01 18:46:26.300 +03:00 [INF] Response:
+StatusCode: 405
+Allow: POST
+2024-01-01 18:46:26.302 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7113/api/auth/login - - - 405 0 - 22.2451ms
+2024-01-01 18:46:47.019 +03:00 [INF] User profile is available. Using 'C:\Users\Hasan_Helvali\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-01 18:46:47.358 +03:00 [INF] Now listening on: https://localhost:7113
+2024-01-01 18:46:47.360 +03:00 [INF] Now listening on: http://localhost:5113
+2024-01-01 18:46:47.365 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-01 18:46:47.366 +03:00 [INF] Hosting environment: Development
+2024-01-01 18:46:47.368 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\
+2024-01-01 18:47:06.358 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7113/api/auth/login - -
+2024-01-01 18:47:06.547 +03:00 [INF] Request:
+Protocol: HTTP/2
+Method: GET
+Scheme: https
+PathBase: 
+Path: /api/auth/login
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+:method: [Redacted]
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7
+Upgrade-Insecure-Requests: [Redacted]
+sec-ch-ua: "Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+sec-fetch-site: [Redacted]
+sec-fetch-mode: [Redacted]
+sec-fetch-user: [Redacted]
+sec-fetch-dest: [Redacted]
+2024-01-01 18:47:06.573 +03:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2024-01-01 18:47:06.577 +03:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2024-01-01 18:47:06.579 +03:00 [INF] Response:
+StatusCode: 405
+Allow: POST
+2024-01-01 18:47:06.594 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7113/api/auth/login - - - 405 0 - 242.6687ms
+2024-01-01 18:47:11.128 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7113/api/auth/login - -
+2024-01-01 18:47:11.142 +03:00 [INF] Request:
+Protocol: HTTP/2
+Method: GET
+Scheme: https
+PathBase: 
+Path: /api/auth/login
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+:method: [Redacted]
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: [Redacted]
+sec-ch-ua: "Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+sec-fetch-site: [Redacted]
+sec-fetch-mode: [Redacted]
+sec-fetch-user: [Redacted]
+sec-fetch-dest: [Redacted]
+2024-01-01 18:47:11.145 +03:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2024-01-01 18:47:11.146 +03:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2024-01-01 18:47:11.147 +03:00 [INF] Response:
+StatusCode: 405
+Allow: POST
+2024-01-01 18:47:11.148 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7113/api/auth/login - - - 405 0 - 20.2348ms
+2024-01-01 18:47:15.031 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7113/api/auth - -
+2024-01-01 18:47:15.035 +03:00 [INF] Request:
+Protocol: HTTP/2
+Method: GET
+Scheme: https
+PathBase: 
+Path: /api/auth
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+:method: [Redacted]
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7
+Upgrade-Insecure-Requests: [Redacted]
+sec-ch-ua: "Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+sec-fetch-site: [Redacted]
+sec-fetch-mode: [Redacted]
+sec-fetch-user: [Redacted]
+sec-fetch-dest: [Redacted]
+2024-01-01 18:47:15.039 +03:00 [INF] Response:
+StatusCode: 404
+2024-01-01 18:47:15.040 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7113/api/auth - - - 404 0 - 9.0413ms
+2024-01-01 18:47:18.917 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7113/api - -
+2024-01-01 18:47:18.920 +03:00 [INF] Request:
+Protocol: HTTP/2
+Method: GET
+Scheme: https
+PathBase: 
+Path: /api
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Host: localhost:7113
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+:method: [Redacted]
+Accept-Encoding: gzip, deflate, br
+Accept-Language: tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7
+Upgrade-Insecure-Requests: [Redacted]
+sec-ch-ua: "Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+sec-fetch-site: [Redacted]
+sec-fetch-mode: [Redacted]
+sec-fetch-user: [Redacted]
+sec-fetch-dest: [Redacted]
+2024-01-01 18:47:18.922 +03:00 [INF] Response:
+StatusCode: 404
+2024-01-01 18:47:18.923 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7113/api - - - 404 0 - 6.0040ms
+2024-01-01 21:42:47.760 +03:00 [INF] User profile is available. Using 'C:\Users\Hasan_Helvali\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-01 21:42:48.146 +03:00 [INF] Now listening on: https://localhost:7113
+2024-01-01 21:42:48.147 +03:00 [INF] Now listening on: http://localhost:5113
+2024-01-01 21:42:48.152 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-01 21:42:48.153 +03:00 [INF] Hosting environment: Development
+2024-01-01 21:42:48.154 +03:00 [INF] Content root path: C:\Users\Hasan_Helvali\Desktop\E-Commerce\ECommerceAPI\Presentation\ECommerceAPI.API\

@@ -1,4 +1,5 @@
 using ECommerceAPI.API.Extensions;
+using ECommerceAPI.API.Filters;
 using ECommerceAPI.Application;
 using ECommerceAPI.Application.Validators.Products;
 using ECommerceAPI.Infrastructure;
@@ -46,7 +47,12 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(policy =>
             policy.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials()));
 
-builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>())
+//builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>())
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add<ValidationFilter>();
+    options.Filters.Add<RolePermissionFilter>();//Ilgili middleware i pipeline a ekledik.
+})
     .AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<CreateProductValidator>())
     .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true);
 
@@ -102,7 +108,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidIssuer = builder.Configuration["Token:Issuer"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:SecurityKey"])),
             LifetimeValidator = (notbefore, expires, securityToken, valdiationParameters) => expires != null ? expires > DateTime.UtcNow : false,
-            NameClaimType=ClaimTypes.Name
+            NameClaimType = ClaimTypes.Name
         };
     });
 var app = builder.Build();
