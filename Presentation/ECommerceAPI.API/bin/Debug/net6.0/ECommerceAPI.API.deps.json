@@ -911,6 +911,14 @@
           }
         }
       },
+      "QRCoder/1.4.3": {
+        "runtime": {
+          "lib/net6.0/QRCoder.dll": {
+            "assemblyVersion": "1.4.3.0",
+            "fileVersion": "1.4.3.0"
+          }
+        }
+      },
       "Serilog/3.1.1": {
         "runtime": {
           "lib/net6.0/Serilog.dll": {
@@ -1361,7 +1369,8 @@
         "dependencies": {
           "Azure.Storage.Blobs": "12.19.1",
           "ECommerceAPI.Application": "1.0.0",
-          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.25"
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.25",
+          "QRCoder": "1.4.3"
         },
         "runtime": {
           "ECommerceAPI.Infrastructure.dll": {}
@@ -2001,6 +2010,13 @@
       "sha512": "sha512-/qzds1Cp9rQD53La3mlWOmCHsFSbmT9BCb8q6k3eOrbOYDfdf3ZN1hBW7IDImUD6V8BfPfEFBhXGDLOEOQxHgQ==",
       "path": "nlog/5.2.4",
       "hashPath": "nlog.5.2.4.nupkg.sha512"
+    },
+    "QRCoder/1.4.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fWuFqjm8GTlEb2GqBl3Hi8HZZeZQwBSHxvRPtPjyNbT82H0ff0JwavKRBmMaXCno1Av6McPC8aJzri0Mj2w9Jw==",
+      "path": "qrcoder/1.4.3",
+      "hashPath": "qrcoder.1.4.3.nupkg.sha512"
     },
     "Serilog/3.1.1": {
       "type": "package",

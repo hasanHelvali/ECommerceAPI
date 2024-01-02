@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "E/VgPiL8622Ijt6uLHC3FzfNrmqN6qZbBMt20nqBWKvQQhFtymHqHHRwmCTaS4dbu3fh/Y5hbyJeQNGDeBEc6A==",
+  "dgSpecHash": "nzvW5lPycTwPHuxz5emf2izBY2YOhz/7riwm68SCTKL9nqtvPYz9tlb22ruSzmo66Qeb9VhleBmgspLpTyqEew==",
   "success": true,
   "projectFilePath": "C:\\Users\\Hasan_Helvali\\Desktop\\E-Commerce\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\ECommerceAPI.API.csproj",
   "expectedPackageFiles": [
@@ -90,6 +90,7 @@
     "C:\\Users\\Hasan_Helvali\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\Hasan_Helvali\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Hasan_Helvali\\.nuget\\packages\\nlog\\5.2.4\\nlog.5.2.4.nupkg.sha512",
+    "C:\\Users\\Hasan_Helvali\\.nuget\\packages\\qrcoder\\1.4.3\\qrcoder.1.4.3.nupkg.sha512",
     "C:\\Users\\Hasan_Helvali\\.nuget\\packages\\serilog\\3.1.1\\serilog.3.1.1.nupkg.sha512",
     "C:\\Users\\Hasan_Helvali\\.nuget\\packages\\serilog.aspnetcore\\8.0.0\\serilog.aspnetcore.8.0.0.nupkg.sha512",
     "C:\\Users\\Hasan_Helvali\\.nuget\\packages\\serilog.extensions.hosting\\8.0.0\\serilog.extensions.hosting.8.0.0.nupkg.sha512",

@@ -28,11 +28,11 @@ namespace ECommerceAPI.Infrastructure
             serviceCollection.AddScoped<IMailService, MailService>();
             serviceCollection.AddScoped<IApplicationService, ApplicationService>();
 
+            serviceCollection.AddScoped<IQRCodeService, QRCodeService>();
+
         }
         public static void AddStorage<T>(this IServiceCollection serviceCollection) where T: Storage , IStorage
         {
-            /*T eger IStorage dan turemis bir class ise eger bunu dogrula ve IStorage i talep eden yapıya gore buradaki T yi yani 
-             class ı bana gonder.*/
             serviceCollection.AddScoped<IStorage,T>();
         }
         public static void AddStorage(this IServiceCollection serviceCollection,StorageType storageType) 
@@ -54,6 +54,5 @@ namespace ECommerceAPI.Infrastructure
             }
         }
 
-        //Inject mekanizmasını buradaki iki sekilde de duzenleyebiliriz. En dogru kullanım birinci kullanımdır.
     }
 }

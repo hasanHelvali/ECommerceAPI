@@ -1,24 +1,14 @@
-﻿using ECommerceAPI.Application.Abstractions;
-using ECommerceAPI.Application.Abstractions.Services;
+﻿using ECommerceAPI.Application.Abstractions.Services;
 using ECommerceAPI.Application.Abstractions.Services.Authentications;
 using ECommerceAPI.Application.Repositories;
 using ECommerceAPI.Domain.Entities.Identity;
-using ECommerceAPI.Persistance.Concretes;
 using ECommerceAPI.Persistance.Contexts;
 using ECommerceAPI.Persistance.InvoiceFile;
 using ECommerceAPI.Persistance.Repositories;
 using ECommerceAPI.Persistance.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Protocols;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace ECommerceAPI.Persistance
 {
     public static class ServiceRegistration
@@ -61,13 +51,13 @@ namespace ECommerceAPI.Persistance
             services.AddScoped<ICompletedOrderReadRepository, CompletedOrderReadRepository>();
             services.AddScoped<ICompletedOrderWriteRepository,CompletedOrderWriteRepository>();
             services.AddScoped<IRoleService, RoleService>();
-
             services.AddScoped<IEndpointReadRepository, EndpointReadRepository>();
             services.AddScoped<IEndpointWriteRepository, EndpointWriteRepository>();
             services.AddScoped<IMenuReadRepository, MenuReadRepository>();
             services.AddScoped<IMenuWriteRepository, MenuWriteRepository>();
-
             services.AddScoped<IAuthorizationEndpointService, AuthorizationEndpointService>();
+            
+            services.AddScoped<IProductService,ProductService>();
 
         }
     }

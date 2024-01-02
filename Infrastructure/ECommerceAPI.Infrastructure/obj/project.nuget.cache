@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "D00hqn8r3AatZAJ3SRGyFUaOLJRe1VY2LIF+m/Fau8lDLakn4lDqvz13o5Ju3hapgVdwNyG9NFX7Oyy5Ru+e7g==",
+  "dgSpecHash": "7j6K+N/7uJ9TwEO+8fL65tHXhaXAb8NE5yqeq7f/iV0+HjKENSvFqpgC2C91VRHU1oTpGZgb11pfesF8hOvqYQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Hasan_Helvali\\Desktop\\E-Commerce\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -60,6 +60,7 @@
     "C:\\Users\\Hasan_Helvali\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Users\\Hasan_Helvali\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
     "C:\\Users\\Hasan_Helvali\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\Hasan_Helvali\\.nuget\\packages\\qrcoder\\1.4.3\\qrcoder.1.4.3.nupkg.sha512",
     "C:\\Users\\Hasan_Helvali\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\Hasan_Helvali\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.1\\system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",
     "C:\\Users\\Hasan_Helvali\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.10.0\\system.identitymodel.tokens.jwt.6.10.0.nupkg.sha512",

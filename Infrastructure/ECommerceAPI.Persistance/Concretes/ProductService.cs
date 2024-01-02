@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace ECommerceAPI.Persistance.Concretes
 {
-    public class ProductService : IProductService
+    //public class ProductService : IProductService    
+    public class ProductService 
     {
         public List<Product> GetProducts()
             => new() {
