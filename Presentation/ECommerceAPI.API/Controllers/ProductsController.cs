@@ -5,6 +5,7 @@ using ECommerceAPI.Application.Enums;
 using ECommerceAPI.Application.Features.Commands.Product.CreateProduct;
 using ECommerceAPI.Application.Features.Commands.Product.RemoveProduct;
 using ECommerceAPI.Application.Features.Commands.Product.UpdateProduct;
+using ECommerceAPI.Application.Features.Commands.Product.UpdateStockQRCodeToProduct;
 using ECommerceAPI.Application.Features.Commands.ProductImageFile.ChangeShowCaseImage;
 using ECommerceAPI.Application.Features.Commands.ProductImageFile.RemoveProductImage;
 using ECommerceAPI.Application.Features.Commands.ProductImageFile.UploadProductImage;
@@ -48,6 +49,12 @@ namespace ECommerceAPI.API.Controllers
             return File(qrData,"image/png");
         }
 
+        [HttpPut("qrcode")]
+        public async Task<IActionResult> UpdateStockQRCodeToProduct([FromBody] UpdateStockQRCodeToProductCommandRequest updateStockQRCodeToProductCommandRequest)
+        {
+            UpdateStockQRCodeToProductCommandResponse updateStockQRCodeToProductCommandResponse = await _mediator.Send(updateStockQRCodeToProductCommandRequest);
+            return Ok(updateStockQRCodeToProductCommandResponse);
+        }
 
         [HttpGet("{ID}")]
         public async Task<IActionResult> Get([FromRoute] GetByIdProductQueryRequest getByIdProductQueryRequest)
